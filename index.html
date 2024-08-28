@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M Gibran Card</title>
+    <title>M Gibran Portfolio Site</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -23,21 +23,36 @@
 <body>
     <header>
         <nav>
-            <img src="./images/pexels-stefanstefancik-91227.jpg" alt="">
+            <!-- <img src="./images/pexels-stefanstefancik-91227.jpg" alt=""> -->
+            <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Project</a></li>
-                <li><a href="#4">Service</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="/" class="nav-link nav-link-color">Home</a></li>
+                <li><a href="/" class="nav-link nav-link-color">Project</a></li>
+                <li><a href="/" class="nav-link nav-link-color">Service</a></li>
+                <li><a href="/" class="nav-link nav-link-color">Blog</a></li>
+                <li><a href="#about" class="nav-link nav-link-color">About</a></li>
                 <li><a href="" class="contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="respons-menu">
+            <ul>
+                <li>
+                    <a href="/" class="nav-link-menu nav-link-menu-color">Home</a>
+                </li>
+                <li><a href="/" class="nav-link-menu nav-link-menu-color">Project</a></li>
+                <li><a href="/" class="nav-link-menu nav-link-menu-color">Service</a></li>
+                <li><a href="/" class="nav-link-menu nav-link-menu-color">Blog</a></li>
+                <li><a href="#about" class="nav-link-menu nav-link-menu-color">About</a></li>
+            </ul>
+
+        </div>
     </header>
     <main>
         <div class="intro-container">
             <div class="intro">
-                <h1 class="hello">HELLO WORLD!</h1>
+                <div class="container">
+                    <p><span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                </div>
                 <h2>I'm <span>M Gibran</span></h2>
                 <h2>I'm a Fullstack-Webdeveloper</h2>
                 <div class="me-icon">
@@ -54,10 +69,11 @@
             </div>
         </div>
         <div class="about-container" id="about">
-            <img src="./images/pexels-stefanstefancik-91227.jpg" alt="">
+            <img src="./images/StockCake-Coding Late Night_1724852400.jpg" alt="">
             <div>
                 <h2>&#128075; HI GUYS!</h2>
-                <p>I'm <span class="name">Gibran</span>, I'm 19 years old, I'm a <span class="job">fullstack web
+                <p>I'm <span class="name">Gibran</span>, I'm <span class="age"></span> years old, I'm a <span
+                        class="job">fullstack web
                         developer</span>. Don't hesitate to visit my
                     portfolio site if you have any needs, don't forget to check my <span
                         style="color: lightpink;">GitHub</span> and <span style="color: blue;">LinkedIn</span> and
@@ -65,6 +81,30 @@
                     contact me via the cellphone number I have listed, and also get additional information from me via
                     my
                     social media.</p>
+            </div>
+        </div>
+        <div class="skill-container">
+            <div class="basic-skill">
+                <h2>Basic client side skill</h2>
+                <div class="icon-container">
+                    <ion-icon name="logo-html5" class="skill-icon html-5"></ion-icon>
+                    <ion-icon name="logo-css3" class="skill-icon css-3"></ion-icon>
+                    <ion-icon name="logo-javascript" class="skill-icon js-es" class="skill-icon"></ion-icon>
+                </div>
+
+            </div>
+            <div class="framework-skill">
+                <h2>Front-end Framework</h2>
+                <div class="icon-container"><ion-icon name="logo-react" class="skill-icon react"></ion-icon>
+                    <ion-icon name="logo-vue" class="skill-icon vue"></ion-icon>
+                </div>
+            </div>
+            <div class="backend-skill">
+                <h2>Back-end technologies</h2>
+                <div class="icon-container">
+                    <ion-icon name="logo-nodejs" class="skill-icon nodejs"></ion-icon>
+                    <ion-icon name="logo-python" class="skill-icon py"></ion-icon>
+                </div>
             </div>
         </div>
     </main>
@@ -79,7 +119,7 @@
                 <ion-icon name="logo-facebook" class="icon-footer"></ion-icon>
                 @john_doe
             </a>
-            <p>&copy; 2024 M GIBRAN</p>
+            <p class="year"></p>
         </div>
         <div class="footer-about">
             <h3>About</h3>
@@ -91,6 +131,8 @@
             <p>+62-123-456-7890</p>
         </div>
     </footer>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
