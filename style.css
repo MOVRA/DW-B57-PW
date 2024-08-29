@@ -30,7 +30,7 @@ header nav {
     align-items: center;
     /* border: 1px solid white; */
     height: 10%;
-    padding:  2% ;
+    padding: 2%;
     background-color: #000000;
     z-index: 1;
 }
@@ -40,6 +40,8 @@ header ul {
     gap: 10vw;
     list-style-type: none;
     align-items: center;
+    /* border: 1px solid white; */
+    margin-right: 6.5vw;
 }
 
 header img {
@@ -97,22 +99,22 @@ main {}
     display: flex;
     justify-content: space-around;
     padding: 2%;
-    margin-top: 2%;
-    align-items: start;
-    height: 50vh;
+    /* margin-top: 2%; */
+    align-items: center;
+    height: 30vw;
 }
 
 .intro-card>img {
-    width: 100%;
-    height: 100%;
+    width: 25vw;
+    height: 25vw;
     object-fit: cover;
-    border-radius: 50px;
+    border-radius: 50%;
     box-shadow: 0 0 10px #158bf9a9;
 }
 
 .intro-card {
-    width: 25%;
-    height: 100%;
+    width: 25vw;
+    height: 25vw;
     /* border: 1px solid white; */
 }
 
@@ -149,10 +151,10 @@ h1 {
 }
 
 .icon {
-    margin-top: 20px;
+    margin-top: 1vw;
     color: white;
-    width: 7vh;
-    height: 7vh;
+    width: 3vw;
+    height: 3vw;
     /* border: 1px solid white; */
     /* width: 35px; */
     /* height: 35px; */
@@ -228,9 +230,9 @@ h1 {
     /* margin-top: 8vh; */
     /* border: 1px solid white; */
     display: flex;
-    padding: 2%;
+    padding: 0 2% 0 2%;
     justify-content: space-around;
-    height: 120vh;
+    height: 50vw;
     align-items: center;
 }
 
@@ -240,8 +242,8 @@ h1 {
 }
 
 .about-container>div {
-    width: 50vh;
-    height: 50%;
+    width: 20vw;
+    height: 25vw;
     /* From https://css.glass */
     background: rgba(37, 44, 101, 0.2);
     border-radius: 16px;
@@ -286,7 +288,7 @@ h1 {
 
 .skill-container {
     /* border: 1px solid white; */
-    height: 40vh;
+    height: 30vw;
     padding: 5%;
     display: flex;
     align-items: center;
@@ -300,12 +302,12 @@ h1 {
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 4vw;
     align-items: center;
     justify-content: center;
-    padding: 3%;
-    width: 20%;
-    height: 30%;
+    padding: 4vw;
+    width: 15vw;
+    height: 10vw;
     background: rgba(37, 44, 101, 0.2);
     border-radius: 2vh;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -322,8 +324,8 @@ h1 {
 }
 
 .skill-icon {
-    width: 10vh;
-    height: 10vh;
+    width: 4vw;
+    height: 4vw;
     transition: 0.2s;
 }
 
@@ -421,18 +423,190 @@ footer {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 3vh;
+    gap: 1vw;
     font-size: 1.5vw;
 }
 
 .icon-footer {
     color: lightslategray;
-    width: 5vh;
-    height: 5vh;
+    width: 2vw;
+    height: 2vw;
 }
 
 .footer-info>p {
     margin-top: 30px;
     font-size: 1vw;
     color: white;
+}
+
+@media only screen and (max-width: 768px) {
+
+    header {
+        position: static;
+    }
+
+    header nav {
+        /* border: 1px solid white; */
+        justify-content: flex-end;
+        margin: 0;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .respons-menu {
+        padding: 2vw;
+        margin: 0;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 8vw;
+        height: 8vw;
+        color: white;
+        cursor: pointer;
+    }
+
+    .respons-menu-on {
+        display: block;
+        margin: 0;
+        background-color: #031931;
+    }
+
+    .respons-menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
+        padding-right: 3vw;
+    }
+
+    .respons-menu a {
+        text-decoration: none;
+        color: grey;
+        font-size: 2vw;
+    }
+
+    /* Main */
+
+    .intro-container {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15vw;
+        padding: 2%;
+        /* margin-top: 2%; */
+        align-items: center;
+        height: 155vw;
+    }
+
+    .intro-card>img {
+        width: 60vw;
+        height: 60vw;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #158bf9a9;
+    }
+
+    .intro-card {
+        width: 60vw;
+        height: 60vw;
+        /* border: 1px solid white; */
+    }
+
+    .intro {
+        color: white;
+    }
+
+    .intro>h1,
+    h2 {
+        /* border: 1px solid white; */
+        margin: 0;
+    }
+
+    .intro>h2 {
+        /* font-size: 30px; */
+        font-size: 5vw;
+    }
+
+    .intro>h2>span {
+        color: rgb(128, 179, 255);
+    }
+
+    .me-icon {
+        gap: 2vw;
+    }
+
+    .icon {
+        margin-top: 1vw;
+        width: 4vw;
+        height: 4vw;
+    }
+
+    .container {}
+
+    .container p {
+        font-size: 5.5vw;
+        margin: 0;
+        letter-spacing: 0.1rem;
+    }
+
+    .container p span.cursor {
+        margin-left: 0.1rem;
+        width: 3px;
+    }
+
+    .about-container {
+        height: 100vw;
+        /* border: 1px solid white; */
+    }
+
+    .about-container div {
+        width: 60vw;
+        height: 75vw;
+    }
+
+    .about-container>div>h2 {
+        font-size: 5vw;
+    }
+
+    .about-container>div>p {
+        font-size: 3vw;
+        line-height: 5vw;
+        letter-spacing: 0.5vw;
+    }
+
+    .about-container img {
+        display: none;
+    }
+
+    .skill-container {
+        /* border: 1px solid white; */
+        align-items: center;
+        justify-content: start;
+        gap: 2vw;
+        height: 100vw;
+        flex-direction: column;
+    }
+
+    .basic-skill,
+    .backend-skill,
+    .framework-skill {
+        width: 60vw;
+        /* height: 50vw; */
+    }
+
+    .basic-skill h2,
+    .framework-skill h2,
+    .backend-skill h2 {
+        font-weight: 300;
+        font-size: 2.2vw;
+    }
+
+    .skill-icon {
+        width: 6vw;
+        height: 6vw;
+        transition: 0.2s;
+    }
 }
