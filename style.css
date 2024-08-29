@@ -547,14 +547,14 @@ footer {
     .respons-menu ul {
         display: flex;
         flex-direction: column;
-        gap: 5vw;
+        gap: 10vw;
         padding-right: 3vw;
     }
 
     .respons-menu a {
         text-decoration: none;
         color: grey;
-        font-size: 2vw;
+        font-size: 3vw;
     }
 
     /* Main */
@@ -702,7 +702,7 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 90vw;
+        width: 70vw;
         height: 50vw;
         padding: 0vw 10vw 0vw 10vw;
         gap: 5vw;
@@ -755,9 +755,10 @@ footer {
     footer {
         background-color: #0d1324;
         /* border: 1px solid white; */
-        padding: 3%;
+        padding: 4vw;
         display: flex;
-        gap: 4vh;
+        gap: 10vw;
+        height: 50vw;
     }
 
     .footer-contact {
@@ -769,28 +770,28 @@ footer {
 
     .footer-contact>h3 {
         color: lightslategray;
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .footer-contact>p {
         color: lightslategray;
-        font-size: 1.8vw;
+        font-size: 2.5vw;
     }
 
     .footer-about {
         display: flex;
         flex-direction: column;
-        gap: 2vw;
+        gap: 3vw;
     }
 
     .footer-about a {
         text-decoration: none;
         color: lightslategray;
-        font-size: 1.8vw;
+        font-size: 2.5vw;
     }
 
     .footer-about h3 {
-        font-size: 3vw;
+        font-size: 4vw;
         color: lightslategray;
     }
 
@@ -798,11 +799,11 @@ footer {
         /* border: 1px solid white; */
         display: flex;
         flex-direction: column;
-        gap: 2vw;
+        gap: 3vw;
     }
 
     .footer-info>h3 {
-        font-size: 3vw;
+        font-size: 4vw;
         color: lightslategray;
     }
 
@@ -811,19 +812,19 @@ footer {
         display: flex;
         align-items: center;
         text-decoration: none;
-        gap: 1vw;
-        font-size: 2vw;
+        gap: 2vw;
+        font-size: 3vw;
     }
 
     .icon-footer {
         color: lightslategray;
-        width: 2vw;
-        height: 2vw;
+        width: 4vw;
+        height: 4vw;
     }
 
     .footer-info>p {
         margin-top: 3vw;
-        font-size: 2vw;
+        font-size: 2.5vw;
         color: white;
     }
 }
