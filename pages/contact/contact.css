@@ -266,7 +266,7 @@ footer {
     .respons-menu-on {
         display: block;
         margin: 0;
-        background-color: #031931;
+        background-color: #07111c;
     }
 
     .respons-menu ul {
@@ -329,5 +329,82 @@ footer {
         font-size: 3vw;
         height: 30vw;
         font-family: poppins;
+    }
+
+    /* Footer */
+
+    footer {
+        background-color: #0d1324;
+        /* border: 1px solid white; */
+        padding: 3%;
+        display: flex;
+        gap: 4vh;
+    }
+    
+    .footer-contact {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        /* padding-top: 10px; */
+    }
+
+    .footer-contact>h3 {
+        color: lightslategray;
+        font-size: 3vw;
+    }
+
+    .footer-contact>p {
+        color: lightslategray;
+        font-size: 1.8vw;
+    }
+
+    .footer-about {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .footer-about a {
+        text-decoration: none;
+        color: lightslategray;
+        font-size: 1.8vw;
+    }
+
+    .footer-about h3 {
+        font-size: 3vw;
+        color: lightslategray;
+    }
+
+    .footer-info {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .footer-info>h3 {
+        font-size: 3vw;
+        color: lightslategray;
+    }
+
+    .footer-info>a {
+        color: lightslategray;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        gap: 1vw;
+        font-size: 2vw;
+    }
+
+    .icon-footer {
+        color: lightslategray;
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .footer-info>p {
+        margin-top: 3vw;
+        font-size: 2vw;
+        color: white;
     }
 }
