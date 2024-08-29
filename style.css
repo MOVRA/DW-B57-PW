@@ -245,12 +245,12 @@ h1 {
     width: 20vw;
     height: 27vw;
     /* From https://css.glass */
-    background: rgba(37, 44, 101, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 4px solid rgba(52, 69, 181, 0.3);
+    background: rgba(37, 44, 101, 0.2);
     padding: 2%;
     transition: 0.2s;
     cursor: pointer;
@@ -629,12 +629,22 @@ footer {
 
     .about-container {
         height: 100vw;
-        /* border: 1px solid white; */
+        border-top: 1px solid rgba(52, 69, 181, 0.3);
+        border-bottom: 1px solid rgba(52, 69, 181, 0.3);
+        background: rgba(37, 44, 101, 0.2);
+        justify-content: center;
     }
 
     .about-container div {
-        width: 60vw;
-        height: 82vw;
+        border: none;
+        width: 100vw;
+        height: auto;
+        background-color: transparent;
+        cursor: default;
+    }
+
+    .about-container > div:hover {
+        box-shadow: none;
     }
 
     .link-more {
@@ -658,29 +668,29 @@ footer {
     .skill-container {
         /* border: 1px solid white; */
         align-items: center;
-        justify-content: start;
-        gap: 2vw;
-        height: 65vw;
+        justify-content: center;
+        gap: 8vw;
+        height: 200vw;
         flex-direction: column;
     }
 
     .basic-skill,
     .backend-skill,
     .framework-skill {
-        width: 60vw;
-        /* height: 50vw; */
+        width: 70vw;
+        height: 20vw;
     }
 
     .basic-skill h2,
     .framework-skill h2,
     .backend-skill h2 {
         font-weight: 300;
-        font-size: 2.2vw;
+        font-size: 3.5vw;
     }
 
     .skill-icon {
-        width: 6vw;
-        height: 6vw;
+        width: 8vw;
+        height: 8vw;
         transition: 0.2s;
     }
 
@@ -688,7 +698,7 @@ footer {
 
     .more-container {
         /* border: 1px solid white; */
-        height: 140vw;
+        height: 200vw;
         display: flex;
         flex-direction: column;
         padding: 0;
@@ -703,7 +713,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         width: 70vw;
-        height: 50vw;
+        height: 80vw;
         padding: 0vw 10vw 0vw 10vw;
         gap: 5vw;
         border-radius: 1vw;
@@ -724,7 +734,7 @@ footer {
 
     .project-block p {
         color: white;
-        font-size: 3vw;
+        font-size: 5vw;
     }
 
     .project-block a {
@@ -734,12 +744,12 @@ footer {
         gap: 0.5vw;
         align-items: center;
         color: white;
-        font-size: 3vw;
+        font-size: 4.5vw;
     }
 
     .arrow-icon {
-        width: 3vw;
-        height: 3vw;
+        width: 4.5vw;
+        height: 4.5vw;
     }
 
     .project-img {
