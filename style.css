@@ -98,10 +98,10 @@ main {}
     /* border: 1px solid white; */
     display: flex;
     justify-content: space-around;
-    padding: 2%;
+    padding: 5%;
     /* margin-top: 2%; */
-    align-items: center;
-    height: 30vw;
+    align-items: flex-start;
+    height: 50vw;
 }
 
 .intro-card>img {
