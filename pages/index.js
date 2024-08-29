@@ -1,3 +1,9 @@
+// Header | All page
+
+document.querySelector(".menu-icon").addEventListener("click", function () {
+    document.querySelector(".respons-menu").classList.toggle("respons-menu-on");
+});
+
 const activePage = window.location.pathname;
 const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -19,8 +25,7 @@ else if (navLinks[4].href.includes(`${activePage}`)) {
     navLinks[4].classList.add('active');
 }
 
-// console.log(window.location.pathname);
-// console.log(navLinks);
+// Footer | All page
 
 const newDate = new Date();
 
@@ -30,7 +35,7 @@ console.log(getYear);
 
 document.querySelector(".year").innerHTML = '&copy; ' + `${getYear} M GIBRAN`;
 
-// 
+// Main | Home page
 
 const yearBorn = 2005;
 
@@ -38,7 +43,6 @@ const age = getYear - 2005
 
 document.querySelector(".age").innerHTML = age;
 
-// 
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
@@ -77,15 +81,42 @@ function erase() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+document.addEventListener("DOMContentLoaded", function () {
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-// 
+// Main | Contact page
 
-document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".respons-menu").classList.toggle("respons-menu-on");
-})
+function sendEmail(e) {
+
+    event.preventDefault(e);
+
+    const userName = document.querySelector("#name").value;
+    const userEmail = document.querySelector("#email").value;
+    const userPNumber = document.querySelector("#pnumber").value;
+    const userSubject = document.querySelector("#subject").value;
+    const userMessage = document.querySelector("#message").value;
+
+    const emailDetail = {
+        name: userName,
+        email: userEmail,
+        userPNumber: userPNumber,
+        subject: userSubject,
+        message: userMessage
+    };
+    
+    const link = document.createElement("a");
+    link.href = `mailto:abgibun@gmail.com?subject=${userSubject}&body=Nama: ${userName}\nNomor HP: ${userPNumber}\nMessage: ${userMessage}`;
+    
+    link.click();
+    
+    console.log(emailDetail);
+
+    window.alert("Hello World!");
+}
+
+
+
 
 
 
