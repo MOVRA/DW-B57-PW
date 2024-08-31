@@ -93,71 +93,55 @@ header .nav-link:hover {
 /* Main */
 
 main {
-    height: 105vw;
-}
-
-.contact-container {
-    height: 70vw;
-    /* border: 1px solid white; */
-    color: white;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 2vw;
-    justify-content: start;
+    height: 50vw;
 }
 
-.contact-container>h3 {
+.detail-container {
+    /* border: 1px solid white; */
+    height: 30vw;
+    padding: 3vw;
+    display: flex;
+    gap: 4vw;
+    align-items: center;
+}
+
+
+.project-img {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 2vw;
+    object-fit: cover;
+    transition: 0.2s;
+}
+
+.project-img:hover {
+    opacity: 0.3;
+}
+
+h2 {
+    color: white;
     font-size: 2vw;
 }
 
-.contact-container>form {
+.options {
     display: flex;
-    flex-direction: column;
+    gap: 2vw;
+    justify-content: end;
     /* border: 1px solid white; */
-    border: 3px solid rgba(18, 77, 146, 0.838);
-    border-radius: 2vw;
-    width: 40vw;
-    padding: 2vw;
-    gap: 1.5vw;
 }
 
-.contact-container label {
+p, a {
+    color: white;
     font-size: 1.5vw;
 }
 
-.contact-container input {
-    height: 2vw;
+.delete-icon, .edit-icon {
+    width: 3vw;
+    height: 3vw;
 }
 
-.contact-container button {
-    color: white;
-    padding: 0.5vw;
-    border-radius: 1vw;
-    width: 10vw;
-    font-size: 1vw;
-    background-color: transparent;
-    border: 1px solid white;
-    margin-top: 2vw;
-}
-
-.contact-container button:hover {
-    background-color: white;
-    color: black;
-}
-
-.contact-container select {
-    height: 2.5vw;
-    font-size: 1vw;
-    font-family: poppins;
-}
-
-.contact-container textarea {
-    font-size: 1vw;
-    height: 10vw;
-    padding: 1vw;
-    font-family: poppins;
-}
 
 /* Footer */
 
@@ -236,8 +220,6 @@ footer {
     color: white;
 }
 
-
-
 @media only screen and (max-width: 768px) {
 
     header {
@@ -290,57 +272,62 @@ footer {
     /* Main */
 
     main {
-        height: fit-content;
-    }
-
-    /* contact container */
-
-    .contact-container {
         height: 200vw;
         justify-content: center;
     }
 
-    .contact-container h3 {
+    .detail-container {
+        /* border: 1px solid white; */
+        height: fit-content;
+        padding: 3vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 4vw;
+        align-items: center;
+    }
+    
+    .project-detail {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .project-img {
+        width: 89vw;
+        height: 55vw;
+        border-radius: 2vw;
+        object-fit: cover;
+        transition: none;
+    }
+    
+    .project-img:hover {
+        opacity: 1;
+    }
+    
+    h2 {
+        color: white;
         font-size: 5vw;
     }
-
-    .contact-container>form {
-        border: none;
-        width: 75vw;
-        height: 150vw;
-        gap: 3vw;
+    
+    .options {
+        display: flex;
+        gap: 10vw;
+        justify-content: end;
+        /* border: 1px solid white; */
     }
-
-    .contact-container label {
+    
+    p, a {
+        color: white;
         font-size: 3.5vw;
     }
-
-    .contact-container input {
-        height: 5vw;
+    
+    .delete-icon, .edit-icon {
+        width: 6.5vw;
+        height: 6.5vw;
     }
+    
 
-    .contact-container button {
-        color: black;
-        padding: 1vw;
-        border-radius: 1vw;
-        width: 25vw;
-        font-size: 3vw;
-        background-color: white;
-        border: 1px solid white;
-        margin-top: 2vw;
-    }
-
-    .contact-container select {
-        height: 5vw;
-        font-size: 3vw;
-        font-family: poppins;
-    }
-
-    .contact-container textarea {
-        font-size: 3vw;
-        height: 30vw;
-        font-family: poppins;
-    }
 
     /* Footer */
 
@@ -357,6 +344,7 @@ footer {
         /* border: 1px solid white; */
         display: flex;
         flex-direction: column;
+        /* padding-top: 10px; */
     }
 
     .footer-contact>h3 {

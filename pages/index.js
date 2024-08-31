@@ -1,4 +1,4 @@
-// Header | All page
+// Header 
 
 document.querySelector(".menu-icon").addEventListener("click", function () {
     document.querySelector(".respons-menu").classList.toggle("respons-menu-on");
@@ -17,14 +17,6 @@ else if (navLinks[2].href.includes(`${activePage}`)) {
     navLinks[2].classList.add('active');
 }
 
-else if (navLinks[3].href.includes(`${activePage}`)) {
-    navLinks[3].classList.add('active');
-}
-
-else if (navLinks[4].href.includes(`${activePage}`)) {
-    navLinks[4].classList.add('active');
-}
-
 // Footer | All page
 
 const newDate = new Date();
@@ -35,7 +27,7 @@ console.log(getYear);
 
 document.querySelector(".year").innerHTML = '&copy; ' + `${getYear} M GIBRAN`;
 
-// Main | Home page
+// Main 
 
 const yearBorn = 2005;
 
@@ -84,40 +76,4 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function () {
     if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
-
-// Main | Contact page
-
-function sendEmail(e) {
-
-    event.preventDefault(e);
-
-    const userName = document.querySelector("#name").value;
-    const userEmail = document.querySelector("#email").value;
-    const userPNumber = document.querySelector("#pnumber").value;
-    const userSubject = document.querySelector("#subject").value;
-    const userMessage = document.querySelector("#message").value;
-
-    const emailDetail = {
-        name: userName,
-        email: userEmail,
-        userPNumber: userPNumber,
-        subject: userSubject,
-        message: userMessage
-    };
-    
-    const link = document.createElement("a");
-    link.href = `mailto:abgibun@gmail.com?subject=${userSubject}&body=Nama: ${userName}\nNomor HP: ${userPNumber}\nMessage: ${userMessage}`;
-    
-    link.click();
-    
-    console.log(emailDetail);
-
-    window.alert("Hello World!");
-}
-
-
-
-
-
-
 

@@ -17,7 +17,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="icon" href="./images/favicon.ico">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="project-detail.css">
 </head>
 
 <body>
@@ -27,8 +27,9 @@
             <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
             <ul>
                 <li><a href="/" class="nav-link nav-link-color">Home</a></li>
-                <li><a href="../project/project.html" class="nav-link nav-link-color">Project</a></li>
-                <li><a href="contact.html" class="contact">Contact</a></li>
+                <li><a href="project.html" class="nav-link nav-link-color">Project</a></li>
+                <li><a href="/" class="nav-link nav-link-color">About</a></li>
+                <li><a href="./pages/contact/contact.html" class="contact">Contact</a></li>
             </ul>
         </nav>
         <div class="respons-menu">
@@ -36,32 +37,27 @@
                 <li>
                     <a href="/" class="nav-link-menu nav-link-menu-color">Home</a>
                 </li>
-                <li><a href="../project/project.html" class="nav-link-menu nav-link-menu-color">Project</a></li>
-                <li><a href="contact.html" class="nav-link-menu nav-link-menu-color">Contact</a></li>
+                <li><a href="project.html" class="nav-link-menu nav-link-menu-color">Project</a></li>
+                <li><a href="./pages/contact/contact.html" class="nav-link-menu nav-link-menu-color">Contact</a></li>
+                <li><a href="/" class="nav-link-menu nav-link-menu-color">About</a></li>
             </ul>
+
         </div>
     </header>
     <main>
-        <div class="contact-container">
-            <h3>Get in touch</h3>
-            <form action="" onsubmit="sendEmail(event)">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <label for="pnumber">Phone Number</label>
-                <input type="text" name="pnumber" id="pnumber">
-                <label for="subject">Subject:</label>
-                <select id="subject">
-                    <option value="We are interested in your skill!">We are interested in your skill!</option>
-                    <option value="I want to use your service!">I want to use your service!</option>
-                    <option value="We would like to invite you!">We would like to invite you!</option>
-                    <option value="Just want to interact with you">Just want to interact with you</option>
-                </select>
-                <label for="message">Message</label>
-                <textarea id="message" cols="30" rows="4" placeholder="Enter your message..."></textarea>
-                <button type="submit">Send</button>
-            </form>
+        <div class="detail-container">
+            <a href="/"><img src="../../images/6383301.jpg" alt="" class="project-img"></a>
+            <div class="project-detail">
+                <h2>Gibun-WebDev-MERN-Stack</h2>
+                <p class="desc">This website is created with MERN techonlogies :D . You can visit the website for the
+                    full review!</p>
+                <p class="duration">Duration : 1 Month</p>
+                <p class="tech">Technologies : Mongo, React, Node, Express</p>
+                <div class="options">
+                    <a href=""> <ion-icon name="create-outline" class="edit-icon"></ion-icon></a>
+                    <a href=""> <ion-icon name="trash-outline" class="delete-icon"></ion-icon></a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
@@ -87,7 +83,8 @@
             <p>+62-123-456-7890</p>
         </div>
     </footer>
-    <script src="contact.js"></script>
+
+    <script src="project-detail.js"></script>
 </body>
 
 </html>

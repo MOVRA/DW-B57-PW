@@ -26,11 +26,11 @@ header {
 
 header nav {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     /* border: 1px solid white; */
     height: 10%;
-    padding: 2%;
+    padding: 1vw;
     background-color: #000000;
     z-index: 1;
 }
@@ -99,23 +99,40 @@ main {}
     display: flex;
     justify-content: space-around;
     padding: 5%;
-    /* margin-top: 2%; */
     align-items: flex-start;
     height: 50vw;
 }
 
 .intro-card>img {
-    width: 25vw;
-    height: 25vw;
+    width: 100%;
+    height: 20vw;
     object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #158bf9a9;
+    border-radius: 1.6vw;
 }
 
 .intro-card {
+    display: flex;
+    justify-content: center;
     width: 25vw;
     height: 25vw;
+    flex-direction: column;
+    box-shadow: 0 0 10px #158bf9a9;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 4px solid  rgb(14, 36, 92);
+    background: rgba(37, 44, 101, 0.2);
+    align-items: center;
+    border-radius: 2vw;
+}
+
+.intro-card > h1 {
     /* border: 1px solid white; */
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.8vw;
+    font-size: 2.5vw;
+    font-weight: 300;
+    color: rgb(190, 193, 226);
 }
 
 .intro {
@@ -129,7 +146,6 @@ h2 {
 }
 
 .intro>h2 {
-    /* font-size: 30px; */
     font-size: 3vw;
 }
 
@@ -156,8 +172,6 @@ h1 {
     width: 3vw;
     height: 3vw;
     /* border: 1px solid white; */
-    /* width: 35px; */
-    /* height: 35px; */
     transition: 0.3s;
 }
 
@@ -170,10 +184,7 @@ h1 {
 }
 
 .container {
-    /* height: 100vh; */
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 .container p {
@@ -227,7 +238,6 @@ h1 {
 /* Simple about */
 
 .about-container {
-    /* margin-top: 8vh; */
     /* border: 1px solid white; */
     display: flex;
     padding: 0 2% 0 2%;
@@ -244,7 +254,6 @@ h1 {
 .about-container>div {
     width: 20vw;
     height: 27vw;
-    /* From https://css.glass */
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -445,7 +454,6 @@ footer {
     /* border: 1px solid white; */
     display: flex;
     flex-direction: column;
-    /* padding-top: 10px; */
 }
 
 .footer-contact>h3 {
@@ -566,7 +574,6 @@ footer {
         justify-content: start;
         gap: 15vw;
         padding: 20vw 0vw 0vw 0vw;
-        /* margin-top: 2%; */
         align-items: center;
         height: 175vw;
     }
@@ -582,7 +589,18 @@ footer {
     .intro-card {
         width: 60vw;
         height: 60vw;
+        background-color: none;
+        border: none;
         /* border: 1px solid white; */
+        display: block;
+        box-shadow: none;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: none;
+        background: none;
+    }
+
+    .intro-card > h1 {
+        display: none;
     }
 
     .intro {
@@ -596,7 +614,6 @@ footer {
     }
 
     .intro>h2 {
-        /* font-size: 30px; */
         font-size: 5.7vw;
     }
 
@@ -643,7 +660,7 @@ footer {
         cursor: default;
     }
 
-    .about-container > div:hover {
+    .about-container>div:hover {
         box-shadow: none;
     }
 
@@ -703,7 +720,6 @@ footer {
         flex-direction: column;
         padding: 0;
         justify-content: center;
-        /* align-items: start; */
         gap: 3vw;
     }
 
@@ -775,7 +791,6 @@ footer {
         /* border: 1px solid white; */
         display: flex;
         flex-direction: column;
-        /* padding-top: 10px; */
     }
 
     .footer-contact>h3 {
