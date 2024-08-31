@@ -20,16 +20,16 @@ else if (navLinks[2].href.includes(`${activePage}`)) {
 // Main
 
 let projectCard = document.querySelectorAll(".project-container");
-
-let key = 3;
+let reader;
+let key = 2;
 let projects = [
-    {
-        key: '2',
-        src: 'https://img.freepik.com/free-vector/gradient-interview-portfolio-template_23-2149220443.jpg',
-        title: 'Gibun-WebDev-MEVN-Stack',
-        desc: 'This website is created with MEVN techonlogies :D . You can visit the website for the full review! ',
-        dur: '10 Days'
-    },
+    // {
+    //     key: '2',
+    //     src: 'https://img.freepik.com/free-vector/gradient-interview-portfolio-template_23-2149220443.jpg',
+    //     title: 'Gibun-WebDev-MEVN-Stack',
+    //     desc: 'This website is created with MEVN techonlogies :D . You can visit the website for the full review! ',
+    //     dur: '10 Days'
+    // },
     {
         key: '1',
         src: 'https://img.freepik.com/free-vector/flat-design-colored-portfolio-template_23-2149215470.jpg',
@@ -40,8 +40,8 @@ let projects = [
 
 ];
 
-if (!localStorage.src1 == "") {
-    for (let i = 1; i <= Number(localStorage.getItem(`key${key}`)); i++) {
+for (let i = 2; i <= Number(localStorage.length); i++) {
+    if (!localStorage.getItem(`key${i}`) == "") {
         projects.unshift(
             {
                 key: localStorage.getItem(`key${i}`),
@@ -51,14 +51,27 @@ if (!localStorage.src1 == "") {
                 dur: localStorage.getItem(`duration${i}`)
             }
         )
-        key++;
+        key = Number(localStorage.getItem(`key${i}`)) + 1;
     }
 }
 
 function keyCount(src, pName, desc, duration) {
 
+    reader = new FileReader();
+
     localStorage.setItem(`key${key}`, key);
-    localStorage.setItem(`src${key}`, src);
+    reader.addEventListener(
+        "load",
+        () => {
+            // convert image file to base64 string
+            localStorage.setItem(`src${key}`, reader.result);
+        },
+        false,
+    );
+    if (src) {
+        reader.readAsDataURL(src);
+    }
+
     localStorage.setItem(`title${key}`, pName);
     localStorage.setItem(`desc${key}`, desc);
     localStorage.setItem(`duration${key}`, duration);
@@ -72,22 +85,14 @@ function keyCount(src, pName, desc, duration) {
             dur: localStorage.getItem(`duration${key}`)
         }
     )
-
-    key++;
-
     renderBlog(projects);
+    window.location.reload();
 }
 
 function renderBlog(projects) {
-
-    if (document.querySelectorAll(".form-none-respons").length >= 1) {
-        document.querySelector(".form-none-respons").classList.add(".form-blog");
-        window.alert("Post berhasil! Silahkan tekan kembali tombol tambahkan untuk melihat postingan");
-    }
-
-    else {
-        document.querySelector(".form-none").classList.remove("form-blog");
-    }
+    document.querySelector(".form-none").classList.remove("form-blog");
+    document.querySelector(".form-none").classList.remove("form-none-respons");
+    document.querySelector(".addBtn").classList.remove("addBtn-active");
 
     let html = "";
 
@@ -106,13 +111,15 @@ function renderBlog(projects) {
                             <a href=""> <ion-icon name="create-outline" class="edit-icon"></ion-icon></a>
                             <a href=""> <ion-icon name="trash-outline" class="delete-icon" onclick="deletePost(event, ${projects[index].key})"></ion-icon></a>
                         </div>
-                        <a href="project-detail.html">See more <ion-icon name="arrow-forward-outline" class="arrow-icon"></ion-icon></a>
+                        <a href="./project-detail.html" >See more <ion-icon name="arrow-forward-outline" class="arrow-icon"></ion-icon></a>
                     </div>
                     <input type="hidden" name="key" value="${projects[index].key}" class="hidden-key">
                 </div>`;
     }
 
+    document.querySelector(".project-display").classList.remove("project-display-col");
     document.querySelector(".project-display").innerHTML = html;
+
 }
 
 function postBlog(event) {
@@ -120,11 +127,9 @@ function postBlog(event) {
 
     let src = ""
 
-    const fileAtt = document.querySelector("#file").files;
+    const fileAtt = document.querySelector("#file").files[0];
 
-    const blogImg = URL.createObjectURL(fileAtt[0]);
-
-    src = blogImg
+    src = fileAtt
 
     const pName = document.querySelector("#pname").value;
 
@@ -162,8 +167,6 @@ function postBlog(event) {
     keyCount(src, pName, desc, duration);
 }
 
-renderBlog(projects);
-
 document.querySelector(".addBtn").addEventListener("click", function () {
     document.querySelector(".addBtn").classList.toggle("addBtn-active");
     document.querySelector(".form-none").classList.toggle("form-blog");
@@ -185,6 +188,20 @@ document.querySelector(".add-icon-respons").addEventListener("click", function (
 function deletePost(event, keyz) {
     event.preventDefault();
 
+    window.location.reload();
+
+    if (!localStorage.getItem(`key${keyz}`) == "") {
+        localStorage.removeItem(`key${keyz}`);
+        localStorage.removeItem(`src${keyz}`);
+        localStorage.removeItem(`desc${keyz}`);
+        localStorage.removeItem(`duration${keyz}`);
+        localStorage.removeItem(`title${keyz}`);
+    }
+
+    else if (localStorage.length == 0) {
+        key = 2;
+    }
+
     let id = keyz;
 
     for (let i = projects.length - 1; i >= 0; i--) {
@@ -201,8 +218,6 @@ function deletePost(event, keyz) {
 }
 
 renderBlog(projects);
-
-// Footer
 
 const newDate = new Date();
 

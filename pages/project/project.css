@@ -260,7 +260,7 @@ main {
 }
 
 .project-display {
-    /* border: 1px solid plum; */
+    /* border: 1px solid white; */
     display: flex;
     align-items: center;
     gap: 5vw;
@@ -271,14 +271,16 @@ main {
 }
 
 .project-display-col {
+    /* border: 1px solid white; */
     justify-content: start;
     align-items: start;
     position: sticky;
     top: 10vw;
+    width: fit-content;
 }
 
 .project-container {
-    width: 40%;
+    width: 36.5vw;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -305,7 +307,7 @@ main {
 }
 
 .project-container-col {
-    width: 20vw;
+    width: 18vw;
     height: auto;
 }
 
@@ -317,7 +319,7 @@ main {
 }
 
 .project-container .project-container-img-col {
-    width: 20vw;
+    width: 18vw;
     height: 10vw;
 }
 
