@@ -23,16 +23,16 @@ const projects = [{
 
 if (!localStorage.length == 0) {
     for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.getItem(`key${i}`) == i) {
+        if (localStorage.getItem(`key${postId}`) == postId) {
             projects.unshift({
-                key: localStorage.getItem(`key${i}`),
-                src: localStorage.getItem(`src${i}`),
-                title: localStorage.getItem(`title${i}`),
-                desc: localStorage.getItem(`desc${i}`),
-                tech: localStorage.getItem(`tech${i}`),
-                dur: localStorage.getItem(`duration${i}`),
-                sdate: localStorage.getItem(`sdate${i}`),
-                edate: localStorage.getItem(`edate${i}`),
+                key: localStorage.getItem(`key${postId}`),
+                src: localStorage.getItem(`src${postId}`),
+                title: localStorage.getItem(`title${postId}`),
+                desc: localStorage.getItem(`desc${postId}`),
+                tech: localStorage.getItem(`tech${postId}`),
+                dur: localStorage.getItem(`duration${postId}`),
+                sdate: localStorage.getItem(`sdate${postId}`),
+                edate: localStorage.getItem(`edate${postId}`),
             })
         }
     }
@@ -169,6 +169,7 @@ document.querySelector(".edit-icon").addEventListener("click", function () {
     document.querySelector("#file").files[0] = projects[projects.length - postId].src;
 })
 // }
+
 render();
 
 // Footer
