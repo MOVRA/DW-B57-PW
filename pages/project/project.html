@@ -53,29 +53,28 @@
             <form action="" onsubmit="postBlog(event)" method="post" enctype="multipart/form-data" class="form-none ">
                 <h3>Post project</h3>
                 <label for="file">Image</label>
-                <input type="file" name="file" id="file" required>
+                <input type="file" name="file" id="file">
                 <label for="pname">Project name</label>
-                <input type="text" name="pname" id="pname" required>
+                <input type="text" name="pname" id="pname">
                 <label for="sDate">Start date</label>
                 <input type="date" name="sDate" id="sDate">
                 <label for="eDate">End date</label>
                 <input type="date" name="eDate" id="eDate">
                 <label for="">Technologies</label>
                 <div class="checkBox">
-                    <input type="checkbox" name="stack" id="" value="Node JS">
-                    <label for="">Node JS</label>
-                    <input type="checkbox" name="stack" id="" value="Next JS">
-                    <label for="">Next JS</label>
-                    <input type="checkbox" name="stack" id="" value="React JS">
-                    <label for="">React JS</label>
-                    <input type="checkbox" name="stack" id="" value="Typescript">
-                    <label for="">Typescript</label>
-                    <input type="checkbox" name="stack" id="" value="others">
-                    <label for="">Others</label>
+                    <input type="checkbox" name="stack" id="tech" value="Node JS">
+                    <label for="tech">Node JS</label>
+                    <input type="checkbox" name="stack" id="tech" value="Next JS">
+                    <label for="tech">Next JS</label>
+                    <input type="checkbox" name="stack" id="tech" value="React JS">
+                    <label for="tech">React JS</label>
+                    <input type="checkbox" name="stack" id="tech" value="Typescript">
+                    <label for="tech">Typescript</label>
+                    <input type="checkbox" name="stack" id="tech" value="others">
+                    <label for="tech">Others</label>
                 </div>
                 <label for="desc">Description</label>
-                <textarea id="message" name="desc" cols="48" rows="10" placeholder="Enter description..."
-                    required></textarea>
+                <textarea id="message" name="desc" cols="48" rows="10" placeholder="Enter description..."></textarea>
                 <button type="submit" class="submitBtn">Post</button>
             </form>
             <div class="project-display">

@@ -21,6 +21,7 @@ else if (navLinks[2].href.includes(`${activePage}`)) {
 
 let projectCard = document.querySelectorAll(".project-container");
 let reader;
+let result;
 let key = 2;
 let projects = [
     // {
@@ -35,7 +36,10 @@ let projects = [
         src: 'https://img.freepik.com/free-vector/flat-design-colored-portfolio-template_23-2149215470.jpg',
         title: 'Gibun-WebDev-MERN-Stack',
         desc: 'This website is created with MERN techonlogies :D . You can visit the website for the full review! ',
-        dur: '1 Month'
+        tech: 'Mongo, React, Node, Express',
+        dur: '1 Month',
+        sdate: '2024-08-01',
+        edate: '2024-09-01'
     },
 
 ];
@@ -48,14 +52,17 @@ for (let i = 2; i <= Number(localStorage.length); i++) {
                 src: localStorage.getItem(`src${i}`),
                 title: localStorage.getItem(`title${i}`),
                 desc: localStorage.getItem(`desc${i}`),
-                dur: localStorage.getItem(`duration${i}`)
+                tech: localStorage.getItem(`tech${i}`),
+                dur: localStorage.getItem(`duration${i}`),
+                sdate: localStorage.getItem(`sdate${i}`),
+                edate: localStorage.getItem(`edate${i}`),
             }
         )
         key = Number(localStorage.getItem(`key${i}`)) + 1;
     }
 }
 
-function keyCount(src, pName, desc, duration) {
+function keyCount(src, pName, desc, duration, check, sdate, edate) {
 
     reader = new FileReader();
 
@@ -74,7 +81,10 @@ function keyCount(src, pName, desc, duration) {
 
     localStorage.setItem(`title${key}`, pName);
     localStorage.setItem(`desc${key}`, desc);
+    localStorage.setItem(`tech${key}`, check);
     localStorage.setItem(`duration${key}`, duration);
+    localStorage.setItem(`sdate${key}`, sdate);
+    localStorage.setItem(`edate${key}`, edate);
 
     projects.unshift(
         {
@@ -82,7 +92,10 @@ function keyCount(src, pName, desc, duration) {
             src: localStorage.getItem(`src${key}`),
             title: localStorage.getItem(`title${key}`),
             desc: localStorage.getItem(`desc${key}`),
-            dur: localStorage.getItem(`duration${key}`)
+            tech: localStorage.getItem(`tech${key}`),
+            dur: localStorage.getItem(`duration${key}`),
+            sdate: localStorage.getItem(`sdate${key}`),
+            edate: localStorage.getItem(`edate${key}`),
         }
     )
     renderBlog(projects);
@@ -108,10 +121,10 @@ function renderBlog(projects) {
                     </div>
                     <div class="options">
                         <div class="option">
-                            <a href=""> <ion-icon name="create-outline" class="edit-icon"></ion-icon></a>
+                            <a href=""> <ion-icon name="create-outline" class="edit-icon" onclick="goTo2(event, ${projects[index].key})"></ion-icon></a>
                             <a href=""> <ion-icon name="trash-outline" class="delete-icon" onclick="deletePost(event, ${projects[index].key})"></ion-icon></a>
                         </div>
-                        <a href="./project-detail.html" >See more <ion-icon name="arrow-forward-outline" class="arrow-icon"></ion-icon></a>
+                        <a href="" onclick="goTo(event, ${projects[index].key})" >See more <ion-icon name="arrow-forward-outline" class="arrow-icon"></ion-icon></a>
                     </div>
                     <input type="hidden" name="key" value="${projects[index].key}" class="hidden-key">
                 </div>`;
@@ -135,8 +148,17 @@ function postBlog(event) {
 
     const desc = document.querySelector("#message").value;
 
-    startDate = document.querySelector("#sDate").value;
-    endDate = document.querySelector("#eDate").value;
+    let startDate = document.querySelector("#sDate").value;
+    let endDate = document.querySelector("#eDate").value;
+
+    let checkboxes =
+        document.getElementsByName('stack');
+    result = "";
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            result = result + "  " + checkboxes[i].value;
+        }
+    }
 
     let date1 = new Date(startDate);
     let date2 = new Date(endDate);
@@ -164,7 +186,7 @@ function postBlog(event) {
         }
     }
 
-    keyCount(src, pName, desc, duration);
+    keyCount(src, pName, desc, duration, result, startDate, endDate);
 }
 
 document.querySelector(".addBtn").addEventListener("click", function () {
@@ -188,7 +210,7 @@ document.querySelector(".add-icon-respons").addEventListener("click", function (
 function deletePost(event, keyz) {
     event.preventDefault();
 
-    window.location.reload();
+    // window.location.reload();
 
     if (!localStorage.getItem(`key${keyz}`) == "") {
         localStorage.removeItem(`key${keyz}`);
@@ -196,6 +218,9 @@ function deletePost(event, keyz) {
         localStorage.removeItem(`desc${keyz}`);
         localStorage.removeItem(`duration${keyz}`);
         localStorage.removeItem(`title${keyz}`);
+        localStorage.removeItem(`tech${keyz}`);
+        localStorage.removeItem(`sdate${keyz}`);
+        localStorage.removeItem(`edate${keyz}`);
     }
 
     else if (localStorage.length == 0) {
@@ -217,7 +242,24 @@ function deletePost(event, keyz) {
     }
 }
 
+function goTo(event, id) {
+    event.preventDefault();
+
+    const ids = id;
+
+    window.location.href = `project-detail.html?id=${ids}`;
+}
+
+function goTo2(event, id) {
+    event.preventDefault();
+
+    const ids = id;
+
+    window.location.href = `project-detail.html?id=${ids}`;
+}
+
 renderBlog(projects);
+
 
 const newDate = new Date();
 

@@ -95,25 +95,37 @@ header .nav-link:hover {
 main {
     display: flex;
     align-items: center;
-    height: 50vw;
+    /* height: 50vw; */
 }
 
 .detail-container {
     /* border: 1px solid white; */
-    height: 30vw;
+    height: fit-content;
     padding: 3vw;
     display: flex;
-    gap: 4vw;
+    gap: 0.5vw;
+    width: 100%;
+    /* flex-direction: column; */
     align-items: center;
+    justify-content: center;
 }
 
+.project-detail {
+    /* border: 1px solid white; */
+    height: 35vw;
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+    flex-wrap: wrap;
+}
 
 .project-img {
-    width: 30vw;
+    width: 40vw;
     height: 30vw;
     border-radius: 2vw;
     object-fit: cover;
     transition: 0.2s;
+    border: 1px solid white;
 }
 
 .project-img:hover {
@@ -122,26 +134,114 @@ main {
 
 h2 {
     color: white;
+    /* border: 1px solid white; */
+    height: fit-content;
     font-size: 2vw;
+    width: 100%;
 }
 
 .options {
     display: flex;
-    gap: 2vw;
+    gap: 3vw;
     justify-content: end;
+    align-items: center;
+    /* border: 1px solid white; */
+    width: 95%;
+}
+
+p,
+a {
+    color: white;
+    font-size: 1.5vw;
+    /* border: 1px solid white; */
+    height: fit-content;
+    width: 100%;
+}
+
+.options>a {
+    width: fit-content;
+}
+
+a>.delete-icon {
+    width: 3vw;
+    height: 3vw;
     /* border: 1px solid white; */
 }
 
-p, a {
+.options>button>.edit-icon {
     color: white;
-    font-size: 1.5vw;
+    width: 3.5vw;
+    height: 3.5vw;
 }
 
-.delete-icon, .edit-icon {
-    width: 3vw;
+.options button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Edit container */
+.no-display {
+    display: none;
+}
+
+.edit-container-none {
+    display: none;
+    color: white;
+    /* border: 1px solid white; */
+    padding: 5vw;
+}
+
+.edit-container {
+    display: block;
+    /* border: 1px solid white; */
+    width: 100%;
+    color: white;
+}
+
+.edit-container form {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    gap: 1.2vw;
+}
+
+.edit-container label {
+    font-size: 1vw;
+}
+
+.edit-container h3 {
+    font-size: 2vw;
+}
+
+.edit-container input {
+    /* border: 1px solid white; */
+    font-size: 1vw;
+    height: 2vw;
+}
+
+.checkBox {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* height: 20vw; */
+    /* border: 1px solid white; */
+}
+
+.checkBox #tech {
+    width: 1vw;
+    height: 1vw;
+    margin: 0.5vw;
+}
+
+textarea {
+    font-size: 1vw;
+}
+
+.submitBtn {
+    width: 8vw;
     height: 3vw;
+    font: 2vw;
 }
-
 
 /* Footer */
 
@@ -286,11 +386,13 @@ footer {
         gap: 4vw;
         align-items: center;
     }
-    
+
     .project-detail {
         display: flex;
         flex-direction: column;
         gap: 2vw;
+        height: fit-content;
+        width: 100%;
     }
 
     .project-img {
@@ -300,34 +402,75 @@ footer {
         object-fit: cover;
         transition: none;
     }
-    
+
     .project-img:hover {
         opacity: 1;
     }
-    
+
     h2 {
         color: white;
         font-size: 5vw;
     }
-    
+
     .options {
         display: flex;
         gap: 10vw;
-        justify-content: end;
+        align-items: center;
+        justify-content: space-around;
         /* border: 1px solid white; */
+        margin-bottom: 20vw;
     }
-    
-    p, a {
+
+    p,
+    a {
         color: white;
-        font-size: 3.5vw;
+        font-size: 5.5vw;
     }
-    
-    .delete-icon, .edit-icon {
+
+    .edit-icon,
+    .delete-icon {
         width: 6.5vw;
         height: 6.5vw;
     }
-    
 
+    .options {
+        display: flex;
+        gap: 8vw;
+        justify-content: end;
+        align-items: center;
+        /* border: 1px solid white; */
+        width: 95%;
+    }
+
+    p,
+    a {
+        /* color: white;
+        font-size: 1.5vw; */
+        /* border: 1px solid white; */
+        /* height: fit-content; */
+        /* width: 100%; */
+    }
+
+    .options>a {
+        width: fit-content;
+    }
+
+    a>.delete-icon {
+        width: 8vw;
+        height: 8vw;
+        /* border: 1px solid white; */
+    }
+
+    .options>button>.edit-icon {
+        color: white;
+        width:8vw;
+        height:8vw;
+    }
+
+    .options button {
+        background-color: transparent;
+        border: none;
+    }
 
     /* Footer */
 
