@@ -463,14 +463,83 @@ footer {
 
     .options>button>.edit-icon {
         color: white;
-        width:8vw;
-        height:8vw;
+        width: 8vw;
+        height: 8vw;
     }
 
     .options button {
         background-color: transparent;
         border: none;
     }
+
+    /* edit */
+
+    /* Edit container */
+    .no-display {
+        display: none;
+    }
+
+    .edit-container-none {
+        display: none;
+        color: white;
+        border: 1px solid white;
+        padding: 5vw;
+        height: fit-content;
+    }
+
+    .edit-container {
+        display: block;
+        /* border: 1px solid white; */
+        width: 100%;
+        color: white;
+    }
+
+    .edit-container form {
+        /* border: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        padding: 3vw;
+        gap: 8.2vw;
+    }
+
+    .edit-container label {
+        font-size: 4vw;
+    }
+
+    .edit-container h3 {
+        font-size: 7vw;
+    }
+
+    .edit-container input {
+        /* border: 1px solid white; */
+        font-size: 3vw;
+        height: 4vw;
+    }
+
+    .checkBox {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3vw;
+        /* height: 20vw; */
+        /* border: 1px solid white; */
+    }
+
+    .checkBox #tech {
+        width: 3vw;
+        height: 3vw;
+        margin: 1vw;
+    }
+
+    textarea {
+        font-size: 2vw;
+    }
+
+    .submitBtn {
+        width: 9vw;
+        height: 5vw;
+        font: 2vw;
+    }
+
 
     /* Footer */
 
