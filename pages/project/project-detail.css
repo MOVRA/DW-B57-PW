@@ -482,7 +482,7 @@ footer {
     .edit-container-none {
         display: none;
         color: white;
-        border: 1px solid white;
+        /* border: 1px solid white; */
         padding: 5vw;
         height: fit-content;
     }
