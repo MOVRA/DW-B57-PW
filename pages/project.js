@@ -1,22 +1,3 @@
-// Header
-
-document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".respons-menu").classList.toggle("respons-menu-on");
-});
-
-const activePage = window.location.pathname;
-const navLinks = document.querySelectorAll('nav ul li a');
-
-if (navLinks[0].href.includes(`${activePage}`)) {
-    navLinks[0].classList.add('active');
-}
-else if (navLinks[1].href.includes(`${activePage}`)) {
-    navLinks[1].classList.add('active');
-}
-else if (navLinks[2].href.includes(`${activePage}`)) {
-    navLinks[2].classList.add('active');
-}
-
 // Main
 
 let projectCard = document.querySelectorAll(".project-container");
@@ -259,10 +240,3 @@ function goTo2(event, id) {
 }
 
 renderBlog(projects);
-
-
-const newDate = new Date();
-
-const getYear = newDate.getFullYear();
-
-document.querySelector(".year").innerHTML = '&copy; ' + `${getYear} M GIBRAN`;

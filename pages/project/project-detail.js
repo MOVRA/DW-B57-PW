@@ -171,11 +171,3 @@ document.querySelector(".edit-icon").addEventListener("click", function () {
 // }
 
 render();
-
-// Footer
-
-const newDate = new Date();
-
-const getYear = newDate.getFullYear();
-
-document.querySelector(".year").innerHTML = '&copy; ' + `${getYear} M GIBRAN`;

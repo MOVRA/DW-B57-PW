@@ -17,141 +17,141 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="icon" href="./images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <!-- <img src="./images/pexels-stefanstefancik-91227.jpg" alt=""> -->
-            <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
-            <ul>
-                <li><a href="/" class="nav-link nav-link-color">Home</a></li>
-                <li><a href="./pages/project/project.html" class="nav-link nav-link-color">Project</a></li>
-                <li><a href="./pages/contact/contact.html" class="contact">Contact</a></li>
-            </ul>
+    <header class="sticky-lg-top">
+        <nav class="navbar navbar-expand-lg bg-black p-3">
+            <div class="container-fluid">
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand text-white" href="#">Welcome</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <ion-icon name="menu-outline" style="color: white; width: 8vw; height: 8vw;"></ion-icon>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mt-2 mb-2 mb-md-0 gap-5 align-items-center">
+                        <li class="nav-item mx-md-4">
+                            <a class="nav-link text-white p-md-2 p-2 active" href="/">Home</a>
+                        </li>
+                        <li class="nav-item mx-md-4">
+                            <a class="nav-link text-white p-md-2 p-2"
+                                href="/pages/testimoni/testimoni.html">Testimoni</a>
+                        </li>
+                        <li>
+                            <a href="./pages/contact/contact.html" class="btn btn-outline-light mx-md-3 d-md-none d-lg-block d-none"
+                                type="submit">Contact</a>
+                            <a href="./pages/contact/contact.html" class="btn text-white mx-md-3 d-lg-none" type="submit">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#project"
+                                class="btn btn-primary mx-md-3 d-md-none d-lg-flex align-items-center p-2 d-none rounded-5 add-project-btn"
+                                type="submit" title="Add Project"><ion-icon name="add-outline"
+                                    class="fs-4"></ion-icon></a>
+                            <a href="#project" class="btn text-white mx-md-3 d-lg-none add-project-btn"
+                                type="submit">Add
+                                Project</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-        <div class="respons-menu">
-            <ul>
-                <li>
-                    <a href="/" class="nav-link-menu nav-link-menu-color">Home</a>
-                </li>
-                <li><a href="./pages/project/project.html" class="nav-link-menu nav-link-menu-color">Project</a></li>
-                <li><a href="./pages/contact/contact.html" class="nav-link-menu nav-link-menu-color">Contact</a></li>
-            </ul>
-
-        </div>
     </header>
     <main>
-        <div class="intro-container">
-            <div class="intro">
-                <div class="container">
-                    <p><span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
-                </div>
-                <h2>I'm <span>M Gibran</span></h2>
-                <h2>I'm a Fullstack-Webdeveloper</h2>
-                <div class="me-icon">
-                    <a href="">
-                        <ion-icon name="logo-github" class="icon github"></ion-icon>
-                    </a>
-                    <a href="">
-                        <ion-icon name="logo-linkedin" class="icon linkedin"></ion-icon>
-                    </a>
-                </div>
-            </div>
-            <div class="intro-card">
-                <img src="./images/pexels-stefanstefancik-91227.jpg" alt="">
-                <h1>M GIBRAN M</h1>
+        <div class="custom-container-landing container-fluid d-flex flex-column justify-content-center px-5 align-items-center gap-lg-4 gap-3 justify-content-lg-start"
+            style="height: 80vh; margin-bottom: 15vw;">
+            <h1 class="text-white text-center">Hello World! &#128075;</h1>
+            <h2 class="text-white fs-3 text-center">Welcome to my <span style="color: lightblue;">portfolio</span> <span
+                    style="color: coral;">websites</span></h2>
+            <p class="text-white fs-6 text-center">This website contains information about myself, the services I
+                provide and the abilities I have</p>
+            <div class="d-flex rounded-4 border align-items-center justify-content-center p-3"
+                style="height: 4rem; width: fit-content;">
+                <h6 class="text-white d-flex gap-2" style="font-size: 1rem;">Project i've done<a href=""
+                        class="fs-6">Check!</a></h6>
             </div>
         </div>
-        <div class="about-container" id="about">
-            <img src="./images/StockCake-Coding Late Night_1724852400.jpg" alt="">
-            <div>
-                <h2>&#128075; HI GUYS!</h2>
-                <p>I'm <span class="name">Gibran</span>, I'm <span class="age"></span> years old, I'm a <span
-                        class="job">fullstack web
-                        developer</span>. Don't hesitate to visit my
-                    portfolio site if you have any needs, don't forget to check my <span
-                        style="color: lightpink;">GitHub</span> and <span style="color: blue;">LinkedIn</span> and
-                    you can also
-                    contact me via the cellphone number I have listed, and also get additional information from me via
-                    my
-                    social media.</p>
-                <a href="" class="link-more">More about me!</a>
-            </div>
-        </div>
-        <div class="skill-container">
-            <div class="basic-skill">
-                <h2>Basic client side skill</h2>
-                <div class="icon-container">
-                    <ion-icon name="logo-html5" class="skill-icon html-5"></ion-icon>
-                    <ion-icon name="logo-css3" class="skill-icon css-3"></ion-icon>
-                    <ion-icon name="logo-javascript" class="skill-icon js-es" class="skill-icon"></ion-icon>
-                </div>
-
-            </div>
-            <div class="framework-skill">
-                <h2>Front-end Framework</h2>
-                <div class="icon-container"><ion-icon name="logo-react" class="skill-icon react"></ion-icon>
-                    <ion-icon name="logo-vue" class="skill-icon vue"></ion-icon>
+        <div class="custom-container-cta container-fluid d-flex justify-content-lg-around mt-5 p-lg-5 flex-column flex-lg-row align-items-lg-center align-items-center gap-5"
+            style="margin-bottom: 20vw;">
+            <div class="card bg-transparent custom-card-cta w-100" style="height: 20rem;">
+                <div class="card-body d-flex flex-column justify-content-around justify-content-lg-between">
+                    <h5 class="card-title text-white fs-3">Checkout the people that have used my service!</h5>
+                    <p class="card-text text-white fs-5 mt-3">I have served many people in creating websites and
+                        designing websites feel free to check!</p>
+                    <a href="#"
+                        class="btn btn-outline-primary mt-3 custom-cta-btn w-50 d-flex align-items-center justify-content-center">Testimoni</a>
                 </div>
             </div>
-            <div class="backend-skill">
-                <h2>Back-end technologies</h2>
-                <div class="icon-container">
-                    <ion-icon name="logo-nodejs" class="skill-icon nodejs"></ion-icon>
-                    <ion-icon name="logo-python" class="skill-icon py"></ion-icon>
+            <div class="card bg-transparent custom-card-cta w-100" style="height: 20rem;">
+                <div class="card-body d-flex flex-column justify-content-around justify-content-lg-between">
+                    <h5 class="card-title text-white fs-3">Contact me if you have a need to use my service!</h5>
+                    <p class="card-text text-white fs-5 mt-3">Contact me if you would like to know more about the
+                        services i provide.</p>
+                    <a href="#"
+                        class="btn btn-outline-primary mt-3 custom-cta-btn w-50 d-flex align-items-center justify-content-center">Contact</a>
                 </div>
             </div>
         </div>
-
-        <div class="more-container">
-            <div class="project-block">
-                <div class="project-img-block">
-                    <img src="./images/5975958.jpg" alt="" class="project-img">
-                    <img src="./images/6383301.jpg" alt="" class="project-img">
-                    <img src="./images/6461144.jpg" alt="" class="project-img">
+        <h1 class="text-center mt-5 fs-1 text-white w-100 pt-5" id="project">My Project</h1>
+        <div class="post-project-container-none">
+            <form action="" onsubmit="postBlog(event)" method="post" enctype="multipart/form-data"
+                class="form-none w-75">
+                <label for="file" class="fs-3 text-white mb-3">Image</label>
+                <input class="form-control bg-light border-0 mb-3 " type="file" name="file" id="file">
+                <label for="pname" class="fs-3 text-white mb-3">Project name</label>
+                <input class="form-control bg-light border-0 mb-3 " type="text" name="pname" id="pname">
+                <label for="sDate" class="fs-3 text-white mb-3">Start date</label>
+                <input class="form-control bg-light border-0 mb-3 " type="date" name="sDate" id="sDate">
+                <label for="eDate" class="fs-3 text-white mb-3">End date</label>
+                <input class="form-control bg-light border-0 mb-3 " type="date" name="eDate" id="eDate">
+                <label for="" class="fs-3 text-white mb-3">Technologies</label>
+                <div class="checkBox">
+                    <input class=" bg-light border-0 mx-1" type="checkbox" name="stack" id="tech" value="Node JS">
+                    <label for="tech" class="fs-6  text-white mb-3">Node JS</label>
+                    <input class=" bg-light border-0 mx-1" type="checkbox" name="stack" id="tech" value="Next JS">
+                    <label for="tech" class="fs-6  text-white mb-3">Next JS</label>
+                    <input class=" bg-light border-0 mx-1" type="checkbox" name="stack" id="tech" value="React JS">
+                    <label for="tech" class="fs-6  text-white mb-3">React JS</label>
+                    <input class=" bg-light border-0 mx-1" type="checkbox" name="stack" id="tech" value="Typescript">
+                    <label for="tech" class="fs-6  text-white mb-3">Typescript</label>
+                    <input class=" bg-light border-0 mx-1" type="checkbox" name="stack" id="tech" value="others">
+                    <label for="tech" class="fs-6  text-white mb-3">Others</label>
                 </div>
-                <div class="project-content">
-                    <p>See my project in detail in the Project page</p>
-                    <a href="./pages/project/project.html">See more <ion-icon name="arrow-forward-outline"
-                            class="arrow-icon"></ion-icon></a>
-                </div>
-            </div>
-            <div class="project-block">
-                <div class="blog-content">
-                    <p>If you want to communicate or if you guys want to use my service. Feel free to contact me!</p>
-                    <a href="./pages/contact/contact.html">See more <ion-icon name="arrow-forward-outline"
-                            class="arrow-icon"></ion-icon></a>
-                </div>
-            </div>
+                <label for="desc" class="fs-3 text-white mb-3">Description</label>
+                <textarea id="message" class="form-control border-0 mb-3" name="desc" cols="48" rows="10"
+                    placeholder="Enter description..."></textarea>
+                <button type="submit" class="btn btn-primary submitBtn">Post</button>
+            </form>
+        </div>
+        <div
+            class="custom-container-project container-fluid p-lg-5 py-5 flex-wrap justify-content-lg-start justify-content-center">
         </div>
     </main>
-    <footer>
-        <div class="footer-info">
-            <h3>More info</h3>
-            <a href="">
-                <ion-icon name="logo-instagram" class="icon-footer"></ion-icon>
-                @john_doe
-            </a>
-            <a href="">
-                <ion-icon name="logo-facebook" class="icon-footer"></ion-icon>
-                @john_doe
-            </a>
-            <p class="year"></p>
+    <footer class="text-center text-white" style="background-color: #091936;">
+        <div class="container p-4 pb-0">
+            <section class="">
+                <p class="d-flex justify-content-center align-items-center">
+                    <span class="me-3">Contact me!</span>
+                    <button type="button" class="btn btn-outline-light btn-rounded">
+                        send message!
+                    </button>
+                </p>
+            </section>
         </div>
-        <div class="footer-about">
-            <h3>About</h3>
-            <a href="#about">Who am i</a>
-            <a href="">My experience</a>
-        </div>
-        <div class="footer-contact">
-            <h3>Contact me</h3>
-            <p>+62-123-456-7890</p>
+        <div class="text-center p-3 year" style="background-color: rgba(0, 0, 0, 0.2);">
         </div>
     </footer>
-
+    <script src="./pages/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="./pages/index.js"></script>
+    <script src="./pages/footer.js"></script>
 </body>
 
 </html>
