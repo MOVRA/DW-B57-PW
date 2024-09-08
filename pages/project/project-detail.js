@@ -1,11 +1,3 @@
-// Header
-
-document.querySelector(".menu-icon").addEventListener("click", function () {
-    document.querySelector(".respons-menu").classList.toggle("respons-menu-on");
-});
-
-// Main
-
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
 
@@ -13,9 +5,9 @@ const projects = [{
     key: '1',
     src: 'https://img.freepik.com/free-vector/flat-design-colored-portfolio-template_23-2149215470.jpg',
     title: 'Gibun-WebDev-MERN-Stack',
-    desc: 'This website is created with MERN techonlogies :D . You can visit the website for the full review! ',
-    tech: 'React JS Node JS',
-    dur: '1 Month',
+    desc: 'This is static data it cannot be remove or edit! :D',
+    tech: 'Mongo, React, Node, Express',
+    dur: '1 month/s',
     sdate: '2024-08-01',
     edate: '2024-09-01'
 }];
@@ -38,47 +30,50 @@ if (!localStorage.length == 0) {
     }
 }
 
-function render() {
+// function render() {
 
     document.querySelector("main").innerHTML = `
-      <div class="detail-container">
-            <a href="/"><img src="${projects[projects.length - postId].src}" alt="" class="project-img"></a>
-            <div class="project-detail">
-                <h2>${projects[projects.length - postId].title}</h2>
-                <p class="desc">${projects[projects.length - postId].desc}</p>
-                <p class="duration">Duration : ${projects[projects.length - postId].dur}</p>
-                <p class="tech">Technologies : ${projects[projects.length - postId].tech}</p>
+      <div class="d-flex btn-ed">
+                        <a href="" class="btn btn-edit btn-primary w-50">Edit</a>
+                        <a href="" onclick="deletePost(event, ${projects[projects.length - postId].key})" class="btn btn-outline-danger mx-2 w-50">Delete</a>
             </div>
-        </div>  
-        <div class="edit-container-none">
-        <form action="" onsubmit="editPost(event)" method="post" enctype="multipart/form-data" class="form-none ">
-            <h3>Edit project</h3>
-            <label for="pname">Project name</label>
-            <input type="text" name="pname" id="pname" value="${projects[projects.length - postId].title}">
-            <label for="sDate">Start date</label>
-            <input type="date" name="sDate" id="sDate" value="${projects[projects.length - postId].sdate}">
-            <label for="eDate">End date</label>
-            <input type="date" name="eDate" id="eDate" value="${projects[projects.length - postId].edate}">
-            <label for="">Technologies</label>
+            <div class="bg-transparent shadow-lg card-custom-project">
+                <img src="${projects[projects.length - postId].src}" class="card-img-top img-custom-project" alt="..."
+                    style="object-fit: cover;">
+                <div class="card-body gap-4 d-flex flex-column justify-content-center" style="width:fit-content;">
+                    <h5 class="card-title text-white fs-4 my-2">${projects[projects.length - postId].title}</h5>
+                    <p class="card-text text-white">${projects[projects.length - postId].desc}</p>
+                    <p class="card-text text-white">${projects[projects.length - postId].tech}</p>
+                    <p class="card-text text-white fs-6">Duration : ${projects[projects.length - postId].dur}</p>        
+                </div>
+            </div> 
+        <form action="" onsubmit="editPost(event)" method="post" enctype="multipart/form-data" class="form-none my-5">
+            <h3 class="fs-3 text-white m-2">Edit project</h3>
+            <label for="pname" class="fs-5 text-white my-4">Project name</label>
+            <input type="text" class="form-control" name="pname" id="pname" value="${projects[projects.length - postId].title}">
+            <label for="sDate" class="fs-5 text-white my-4">Start date</label>
+            <input type="date" class="form-control" name="sDate" id="sDate" value="${projects[projects.length - postId].sdate}">
+            <label for="eDate" class="fs-5 text-white my-4">End date</label>
+            <input type="date" class="form-control" name="eDate" id="eDate" value="${projects[projects.length - postId].edate}">
+            <label for="" class="fs-5 text-white my-4">Technologies</label>
             <div class="checkBox">
                 <input type="checkbox" name="stack" id="tech" value="Node JS">
-                <label for="tech">Node JS</label>
+                <label for="tech" class="text-white mx-3">Node JS</label>
                 <input type="checkbox" name="stack" id="tech" value="Next JS">
-                <label for="tech">Next JS</label>
+                <label for="tech" class="text-white mx-3">Next JS</label>
                 <input type="checkbox" name="stack" id="tech" value="React JS">
-                <label for="tech">React JS</label>
+                <label for="tech" class="text-white mx-4">React JS</label>
                 <input type="checkbox" name="stack" id="tech" value="Typescript">
-                <label for="tech">Typescript</label>
+                <label for="tech" class="text-white mx-3">Typescript</label>
                 <input type="checkbox" name="stack" id="tech" value="others">
-                <label for="tech">Others</label>
+                <label for="tech" class="text-white mx-3">Others</label>
             </div>
-            <label for="desc">Description</label>
-            <textarea id="message" name="desc" cols="48" rows="10" placeholder="Enter description...">${projects[projects.length - postId].desc}</textarea>
-            <button type="submit" class="submitBtn">Post</button>
+            <label for="desc" class="fs-5 text-white my-4">Description</label>
+            <textarea id="message" class="form-control" name="desc" cols="48" rows="10" placeholder="Enter description...">${projects[projects.length - postId].desc}</textarea>
+            <button type="submit" class="btn btn-outline-primary my-4  submitBtn">Post</button>
         </form>
-    </div>
 `
-}
+// }
 
 let result;
 
@@ -134,14 +129,12 @@ function editPost(event) {
     localStorage.setItem(`sdate${postId}`, startDate);
     localStorage.setItem(`edate${postId}`, endDate);
 
-    window.location.href = "project.html";
+    window.location.href = "/#project";
 }
 
 
 function deletePost(event) {
     event.preventDefault();
-
-    window.location.reload();
 
     let keyz = projects[projects.length - postId].key
 
@@ -156,18 +149,23 @@ function deletePost(event) {
         localStorage.removeItem(`edate${keyz}`);
     }
 
-    window.location.href = "project.html";
+    window.location.href = "/#project";
 }
+
+document.querySelector(".btn-edit").addEventListener("click", (event) => {
+    event.preventDefault();
+    document.querySelector(".card-custom-project").classList.toggle("card-none");
+    document.querySelector(".form-none").classList.toggle("form-block");
+});
 
 // function editPost(event) {
 // event.preventDefault();
 
-document.querySelector(".edit-icon").addEventListener("click", function () {
-    document.querySelector(".detail-container").classList.toggle("no-display");
-    document.querySelector(".edit-container-none").classList.toggle("edit-container")
+// document.querySelector(".edit-icon").addEventListener("click", function () {
+//     document.querySelector(".detail-container").classList.toggle("no-display");
+//     document.querySelector(".edit-container-none").classList.toggle("edit-container")
 
-    document.querySelector("#file").files[0] = projects[projects.length - postId].src;
-})
+//     document.querySelector("#file").files[0] = projects[projects.length - postId].src;
+// })
 // }
-
-render();
+// 

@@ -196,7 +196,7 @@ function goTo(event, id) {
 
     const ids = id;
 
-    window.location.href = `project-detail.html?id=${ids}`;
+    window.location.href = `pages/project/project-detail.html?id=${ids}`;
 }
 
 function goTo2(event, id) {
