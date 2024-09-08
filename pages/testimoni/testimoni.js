@@ -34,9 +34,9 @@ async function getTesti() {
     document.querySelector(".container-cards").innerHTML = domz;
 }
 
-for (let i = 1; i < document.querySelectorAll(".btn").length; i++) {
-    document.querySelectorAll(".btn")[i].addEventListener("click", () => {
-        let p = document.querySelectorAll(".btn")[i].innerText;
+for (let i = 0; i < document.querySelectorAll(".btn-rate").length; i++) {
+    document.querySelectorAll(".btn-rate")[i].addEventListener("click", () => {
+        let p = document.querySelectorAll(".btn-rate")[i].innerText;
         getRating(p, event);
     });
 }

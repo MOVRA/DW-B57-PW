@@ -103,9 +103,9 @@ function renderBlog(projects) {
                 <img src="${projects[index].src}" class="card-img-top img-custom-project" alt="..."
                     style="object-fit: cover;">
                 <div class="card-body gap-0 d-flex flex-column justify-content-around">
-                    <h5 class="card-title text-white">${projects[index].title}</h5>
-                    <p class="card-text text-white fs-5">${projects[index].desc}</p>
-                    <p class="card-text text-white">Duration : ${projects[index].dur}</p>
+                    <h5 class="card-title text-white fs-6">${projects[index].title}</h5>
+                    <p class="card-text text-white">${projects[index].desc}</p>
+                    <p class="card-text text-white fs-6">Duration : ${projects[index].dur}</p>
                     <div>
                         <a href="" onclick="goTo(event, ${projects[index].key})" class="btn btn-primary w-25">Edit</a>
                         <a href="" onclick="deletePost(event, ${projects[index].key})" class="btn btn-outline-danger mx-2 w-50">Delete</a>

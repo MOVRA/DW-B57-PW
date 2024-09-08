@@ -49,6 +49,11 @@ body {
     height: 100vw;
 }
 
+.custom-container-cta {
+    /* border: 1px solid white; */
+    margin-bottom: 60vw;
+}
+
 
 
 @media screen and (min-width: 992px) {
@@ -59,8 +64,9 @@ body {
     }
 
     .custom-container-cta {
-        height: 40vw;
+        height: 30vw;
         /* border: 1px solid white; */
+        margin-bottom: 32vw;
     }
 
     .custom-container-project {
@@ -80,8 +86,12 @@ body {
 
     .card-custom-project {
         border: 1px solid blue;
-        height: 35rem;
+        height: 32rem;
         width: 21.5rem;
+    }
+
+    .custom-card-cta {
+        width: 40vw;
     }
 
 }
