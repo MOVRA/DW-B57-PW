@@ -59,6 +59,7 @@ body {
 @media screen and (min-width: 992px) {
 
     .custom-container-landing {
+        /* border: 1px solid white; */
         /* height: 50vh; */
         padding-top: 10vw;
     }
