@@ -13,3 +13,52 @@ body {
     background-color: hsla(230, 39%, 47%, 0.3);
     border-radius: 1vw;
 }
+
+.custom-card {
+    width: 100%;
+    height: 85vw;
+    background-color: #091936;
+    border: 1px solid blue;
+}
+
+.custom-img {
+    width: 100%;
+    height: 50vw;
+    object-fit: cover;
+}
+
+.card-text {
+    font-size: 3vw;
+}
+
+.page-link {
+    /* pointer-events: none; */
+}
+
+.btn a {
+    font-size: 2.3vw;
+}
+
+
+@media screen and (min-width: 992px) {
+    .custom-card {
+        width: 17rem;
+        height: 20rem;
+        background-color: #091936;
+        border: 1px solid blue;
+    }
+
+    .custom-img {
+        object-fit: cover;
+        width: 17rem;
+        height: 10rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+
+    .btn a {
+        font-size: 1vw;
+    }
+}
