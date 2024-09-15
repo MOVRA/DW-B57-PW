@@ -1,0 +1,154 @@
+const express = require("express");
+const config = require("../config/config");
+const { Sequelize, QueryTypes } = require("sequelize");
+const sequelize = new Sequelize(config.development);
+const bodyParser = require("body-parser");
+const projectModel = require("../models").Project
+const session = require("express-session");
+const router = express.Router();
+const env = require("dotenv");
+
+env.config();
+
+router.use(bodyParser.urlencoded({ extended: true }));
+
+router.use(
+    session({
+        name: "my-session",
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24,
+        },
+    })
+);
+
+function trackDuration(getData) {
+
+    let duration = [];
+
+    for (let i = 0; i < getData.length; i++) {
+        let { start_date, end_date } = getData[i];
+        start_date = new Date(getData[i].start_date);
+        end_date = new Date(getData[i].end_date);
+
+        start_date.setHours(0, 0, 0, 0);
+        end_date.setHours(0, 0, 0, 0);
+
+        let dayInMili = 1000 * 60 * 60 * 24;
+        let track = Math.round(Math.abs(start_date - end_date) / dayInMili);
+
+        let month;
+        let year;
+
+        duration.push(track);
+
+        duration[i] = `${track} day/s`;
+
+        if (track >= 30 && track <= 31 || track >= 31) {
+            month = Math.round(track / 30);
+            duration[i] = `${month} month/s`;
+            if (month >= 12) {
+                year = Math.round(month / 12);
+                duration[i] = `${year} year/s`;
+            }
+        }
+    }
+
+    return duration;
+}
+
+router.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(err => {
+            if (err) {
+                res.status(400).send('Unable to log out')
+            } else {
+                res.redirect("/");
+            }
+        });
+    } else {
+        res.redirect("/");
+    }
+})
+
+router.post("/delete/:id", async (req, res) => {
+    if (req.session) {
+        try {
+            let result = await projectModel.findOne({
+                where: {
+                    id: res.params.id,
+                },
+            });
+
+            if (!result) return res.render("not-found");
+
+            await projectModel.destroy({
+                where: {
+                    id: req.params.id,
+                },
+            });
+
+            console.log("Success deleting project!");
+
+        } catch (error) {
+            console.log("Failed deleting project!")
+            res.redirect("/#project");
+        }
+    }
+    else {
+        res.redirect("/login");
+    }
+});
+
+router.post("/add-project", async (req, res) => {
+    try {
+        const stack = req.body.stack;
+
+        await projectModel.create({
+            name: req.body.pname,
+            start_date: req.body.sDate,
+            end_date: req.body.eDate,
+            description: req.body.desc,
+            technologies: stack ? stack.join().replace(/,/g, " ") : "-",
+            image: 'https://preview.redd.it/can-someone-find-me-the-full-picture-of-luffy-v0-h2pzsqum3vwc1.png?width=1400&format=png&auto=webp&s=874056ae179de44d273e13328f104a1eb1f9c50d'
+        })
+
+        console.log("Success inserting data!");
+
+        res.redirect("/#project");
+    } catch (error) {
+        console.log("Failed inserting data!");
+
+        res.redirect("/#project");
+    }
+})
+
+router.get("/", async (req, res) => {
+    try {
+        const getData = await projectModel.findAll();
+
+        const duration = trackDuration(getData);
+
+        for (let i = 0; i < getData.length; i++) {
+            getData[i].duration = duration[i];
+        }
+
+        res.render("index.hbs", {
+            data: getData,
+            user: req.session.user,
+            style: "/styles/index.css",
+            jscript: "/js/func-index.js"
+        });
+
+    } catch (error) {
+        res.render("index.hbs", {
+            data: null,
+            style: "/styles/index.css",
+            jscript: "/js/func-index.js"
+        });
+    }
+});
+
+module.exports = router;

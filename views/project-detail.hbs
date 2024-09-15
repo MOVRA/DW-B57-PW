@@ -1,0 +1,47 @@
+{{>header}}
+<main>
+    {{#each data}}
+    <div class="d-flex btn-ed ">
+        <a href="" class="btn btn-edit btn-primary w-50">Edit</a>
+        <form action="/delete/{{id}}" class=" w-50" method="post">
+            <button type="submit" class="btn btn-outline-danger mx-2 w-100">Delete</button>
+        </form>
+    </div>
+    <div class="bg-transparent shadow-lg card-custom-project">
+        <img src={{image}} class="card-img-top img-custom-project" alt="..." style="object-fit: cover;">
+        <div class="card-body gap-4 d-flex flex-column justify-content-center" style="width:fit-content;">
+            <h5 class="card-title text-white fs-4 my-2">{{name}}</h5>
+            <p class="card-text text-white">{{description}}</p>
+            <p class="card-text text-white">Tech : {{technologies}}</p>
+            <p class="card-text text-white fs-6">Duration : {{duration}}</p>
+        </div>
+    </div>
+    <form action="/edit-project/{{id}}" method="post" class="form-none my-5">
+        <h3 class="fs-3 text-white m-2">Edit project</h3>
+        <label for="pname" class="fs-5 text-white my-4">Project name</label>
+        <input type="text" class="form-control" name="pname" id="pname" value={{name}}>
+        <label for="sDate" class="fs-5 text-white my-4">Start date</label>
+        <input type="date" class="form-control" name="sDate" id="sDate" value="{{start_date}}">
+        <label for="eDate" class="fs-5 text-white my-4">End date</label>
+        <input type="date" class="form-control" name="eDate" id="eDate" value="{{end_date}}">
+        <label for="" class="fs-5 text-white my-4">Technologies</label>
+        <div class="checkBox">
+            <input type="checkbox" name="stack" id="tech" value="Node JS">
+            <label for="tech" class="text-white mx-3">Node JS</label>
+            <input type="checkbox" name="stack" id="tech" value="Next JS">
+            <label for="tech" class="text-white mx-3">Next JS</label>
+            <input type="checkbox" name="stack" id="tech" value="React JS">
+            <label for="tech" class="text-white mx-4">React JS</label>
+            <input type="checkbox" name="stack" id="tech" value="Typescript">
+            <label for="tech" class="text-white mx-3">Typescript</label>
+            <input type="checkbox" name="stack" id="tech" value="others">
+            <label for="tech" class="text-white mx-3">Others</label>
+        </div>
+        <label for="desc" class="fs-5 text-white my-4">Description</label>
+        <textarea id="message" class="form-control" name="desc" cols="48" rows="10"
+            placeholder="Enter description...">{{description}}</textarea>
+        <button type="submit" class="btn btn-outline-primary my-4  submitBtn">Post</button>
+    </form>
+    {{/each}}
+</main>
+{{>footer}}
