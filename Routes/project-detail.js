@@ -94,30 +94,36 @@ router.post("/edit-project/:id", async (req, res) => {
 })
 
 router.get("/project-detail/:id", async (req, res) => {
+    console.log(req.session.user.id);
     if (req.session.user) {
-        try {
-            const query = `SELECT * FROM public."Projects" WHERE id = ${req.params.id}`;
+        if (req.session.user.id != req.params) {
+            try {
+                const query = `SELECT * FROM public."Projects" WHERE user_id = ${req.params.id}`;
 
-            const getData = await sequelize.query(query, { type: QueryTypes.SELECT });
+                const getData = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-            const duration = trackDuration(getData);
+                const duration = trackDuration(getData);
 
-            for (const dur of getData) {
-                dur.duration = duration;
+                for (const dur of getData) {
+                    dur.duration = duration;
+                }
+
+                res.render("project-detail.hbs", {
+                    user: req.session.user,
+                    data: getData,
+                    style: "/styles/project-detail.css",
+                    jscript: "/js/func-project-detail.js"
+                });
+            } catch (error) {
+                res.redirect("/#project");
             }
-
-            res.render("project-detail.hbs", {
-                user: req.session.user,
-                data: getData,
-                style: "/styles/project-detail.css",
-                jscript: "/js/func-project-detail.js"
-            });
-        } catch (error) {
-            res.redirect("/#project");
+        }
+        else {
+            res.redirect("/nf")
         }
     }
     else {
-        res.redirect("/login");
+        res.redirect("/nf");
     }
 })
 

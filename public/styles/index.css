@@ -81,18 +81,77 @@ body {
     }
 
     .img-custom-project {
-        width: 21.5rem;
-        height: 15rem;
+        width: 95%;
+        height: 45%;
+        margin: auto;
     }
 
     .card-custom-project {
         border: 1px solid blue;
-        height: 32rem;
+        height: 28rem;
         width: 21.5rem;
+        padding: 20px;
     }
 
     .custom-card-cta {
         width: 40vw;
     }
 
+    .card-body h5 {
+        font-size: 1.5vw;
+    }
+
+    .card-body p {
+        font-size: 1vw;
+    }
+
+    .btn-edit-delete {
+        height: 2vw;
+    }
+
+    .btn-edit-delete a {
+        font-size: 1vw;
+    }
+
+    .more-btn {
+        background-color: transparent;
+        border: none;
+    }
+
+    .more-menu-na {
+        list-style-type: none;
+        display: none;
+    }
+
+    .more-menu-na a {
+        text-decoration: none;
+        font-size: 1vw;
+        /* border: 1px solid white; */
+        color: white;
+        padding: 0.8vw;
+    }
+
+    .more-menu-na a:hover {
+        background-color: rgb(88, 95, 202);
+        color: white;
+    }
+
+    .more-menu-a {
+        display: block;
+        position: absolute;
+        margin-left: 80%;
+        margin-top: 10%;
+        width: 7vw;
+        z-index: 1;
+        display: flex;
+        background-color: rgba(122, 122, 122, 0.927);
+        flex-direction: column;
+        /* border: 1px solid blue; */
+        /* text-align: center; */
+        /* border: 1px solid white; */
+    }
+
+    .project-link { 
+        border: 1px solid white;
+    }
 }

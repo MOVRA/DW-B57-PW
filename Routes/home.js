@@ -3,9 +3,9 @@ const config = require("../config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
 const sequelize = new Sequelize(config.development);
 const bodyParser = require("body-parser");
-const projectModel = require("../models").Project
-const session = require("express-session");
+const projectModel = require("../models").Project;
 const router = express.Router();
+const session = require("express-session");
 const env = require("dotenv");
 
 env.config();
@@ -44,7 +44,7 @@ function trackDuration(getData) {
 
         duration.push(track);
 
-        duration[i] = `${track} day/s`;
+        duration[i] = `${track > 0 ? track : 1} day/s`;
 
         if (track >= 30 && track <= 31 || track >= 31) {
             month = Math.round(track / 30);
@@ -112,7 +112,9 @@ router.post("/add-project", async (req, res) => {
             end_date: req.body.eDate,
             description: req.body.desc,
             technologies: stack ? stack.join().replace(/,/g, " ") : "-",
-            image: 'https://preview.redd.it/can-someone-find-me-the-full-picture-of-luffy-v0-h2pzsqum3vwc1.png?width=1400&format=png&auto=webp&s=874056ae179de44d273e13328f104a1eb1f9c50d'
+            image: 'https://preview.redd.it/can-someone-find-me-the-full-picture-of-luffy-v0-h2pzsqum3vwc1.png?width=1400&format=png&auto=webp&s=874056ae179de44d273e13328f104a1eb1f9c50d',
+            user_id: req.session.user.id,
+            username : req.body.username
         })
 
         console.log("Success inserting data!");
@@ -142,8 +144,11 @@ router.get("/", async (req, res) => {
             jscript: "/js/func-index.js"
         });
 
+        console.log(req.session);
+
     } catch (error) {
         res.render("index.hbs", {
+            user: null,
             data: null,
             style: "/styles/index.css",
             jscript: "/js/func-index.js"

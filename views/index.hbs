@@ -49,6 +49,8 @@
     <h1 class="text-center mt-lg-0 mt-5 mb-5 fs-3 text-white w-100 pt-lg-0 pt-5" id="project">My Project</h1>
     <div class="post-project-container-none">
         <form action="/add-project" method="post" class="form-none w-75">
+            <input class="form-control bg-light border-0 mb-3 " type="text" name="username" id="userame"
+                value="{{user.username}}" hidden>
             <label for="file" class="fs-5 text-white mb-3">Image</label>
             <input class="form-control bg-light border-0 mb-3 " type="file" name="file" id="file">
             <label for="pname" class="fs-5 text-white mb-3">Project name</label>
@@ -78,23 +80,66 @@
     </div>
     <div
         class="custom-container-project container-fluid p-lg-5 py-lg-5 py-3 flex-wrap justify-content-lg-start justify-content-center">
+        {{#if user}}
         {{#each data}}
         <div class="card bg-transparent shadow-lg card-custom-project">
+            {{#if_eq ../user.id user_id}}
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p style="font-size: 1vw;" class="text-white">{{username}}</p>
+                <button class="more-btn"><ion-icon name="ellipsis-horizontal-outline"
+                        style="color: white; height: 1.5vw; width: 1.5vw"></ion-icon></button>
+            </div>
+            <div class="more-menu-na">
+                <a href="/project-detail/{{../user.id}}" class="">Edit</a>
+                <a href="/project-detail/{{../user.id}}" class="">Delete</a>
+            </div>
+            {{else}}
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p style="font-size: 1vw;" class="text-white">{{username}}</p>
+                <button class="more-btn"><ion-icon name="ellipsis-horizontal-outline"
+                        style="color: white; height: 1.5vw; width: 1.5vw"></ion-icon></button>
+            </div>
+            <div class="more-menu-na">
+                <a href="/project-detail/{{user_id}}" class="text-white">View Post</a>
+            </div>
+            {{/if_eq}}
             <img src={{image}} class="card-img-top img-custom-project" alt="..." style="object-fit: cover;">
-            <div class="card-body gap-0 d-flex flex-column justify-content-around">
-                <h5 class="card-title text-white fs-6">{{ name }}</h5>
+            <div class="card-body  d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title text-white">{{ name }}</h5>
+                </div>
                 <p class="card-text text-white">{{ description }}</p>
-                <p class="card-text text-white fs-6">Duration : {{ duration }} </p>
-                <div class="" style="display: flex; height: 3vw">
-                    <a href="/project-detail/{{id}}" class="btn btn-primary w-25">Edit</a>
-                    <a href="/project-detail/{{id}}" class="btn btn-outline-danger mx-2 w-25">Delete</a>
-                    {{!-- <form action="/delete/{{id}}" method="post"> --}}
-                        {{!-- <button type="submit" class="btn btn-outline-danger mx-2 w-100">Delete</button> --}}
-                    {{!-- </form> --}}
+                <div class="btn-edit-delete" style="display: flex; height: fit-content; flex-direction: column;">
+                    <p class="card-text text-white" style="margin-right: 2vw;">Duration : {{ duration }} </p>
                 </div>
             </div>
         </div>
         {{/each}}
+        {{else}}
+        {{#each data}}
+        <div class="card bg-transparent shadow-lg card-custom-project">
+            <div style="display: flex; justify-content: space-between; align-items: center">
+                <p style="font-size: 1vw;" class="text-white">{{username}}</p>
+                <button class="more-btn"><ion-icon name="ellipsis-horizontal-outline"
+                        style="color: white; height: 1.5vw; width: 1.5vw"></ion-icon></button>
+            </div>
+            <div class="more-menu-na">
+                <a href="/login" class="">Log-in</a>
+            </div>
+            <img src={{image}} class="card-img-top img-custom-project" alt="..." style="object-fit: cover;">
+            <div class="card-body  d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title text-white">{{ name }}</h5>
+                </div>
+                <p class="card-text text-white">{{ description }}</p>
+                <div class="btn-edit-delete" style="display: flex; height: fit-content; flex-direction: column;">
+                    <p class="card-text text-white" style="margin-right: 2vw;">Duration : {{ duration }} </p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
     </div>
+
 </main>
 {{>footer}}

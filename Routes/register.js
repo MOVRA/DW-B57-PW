@@ -11,13 +11,15 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post("/register", async (req, res) => {
+    console.log(req.body);
     try {
 
         const hashedPw = await bcrypt.hash(req.body.password, 10)
 
         await userModel.create({
+            username : req.body.username,
             email: req.body.email,
-            password: hashedPw
+            password: hashedPw,
         });
 
         console.log("Success registering user!");

@@ -188,3 +188,8 @@
 
 // renderBlog(projects);
 
+for (let i = 0; i < document.querySelectorAll(".more-btn").length; i++) {
+    document.querySelectorAll(".more-btn")[i].addEventListener("click", function () {
+        document.querySelectorAll(".more-menu-na")[i].classList.toggle("more-menu-a");
+    })
+}
