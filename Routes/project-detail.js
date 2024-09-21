@@ -4,9 +4,11 @@ const { Sequelize, QueryTypes } = require("sequelize");
 const sequelize = new Sequelize(config.development);
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const fs = require('fs');
+
+const env = require("dotenv");
 
 const router = express.Router();
-const env = require("dotenv");
 
 router.use(
     session({
@@ -40,7 +42,7 @@ function trackDuration(getData) {
         let month;
         let year;
 
-        duration = `${track} day/s`;
+        duration = `${track > 0 ? track : 1} day/s`;
 
         if (track >= 30 && track <= 31 || track >= 31) {
             month = Math.round(track / 30);
@@ -57,8 +59,25 @@ function trackDuration(getData) {
 
 router.post("/delete/:id", async (req, res) => {
     try {
-        const query = `DELETE FROM public."Projects"
-	WHERE id = ${req.params.id};`
+
+        const queryGet = `SELECT * FROM public."Projects" WHERE id = ${req.params.id}`;
+
+        const getData = await sequelize.query(queryGet, { type: QueryTypes.SELECT });
+
+        fs.stat(`./public/${getData[0].image}`, function (err, stats) {
+            console.log(stats);
+
+            if (err) {
+                return console.error(err);
+            }
+
+            fs.unlink(`./public/${getData[0].image}`, function (err) {
+                if (err) return console.log(err);
+                console.log('file deleted successfully');
+            });
+        });
+
+        const query = `DELETE FROM public."Projects" WHERE id = ${req.params.id};`
 
         await sequelize.query(query, { type: QueryTypes.DELETE });
 
@@ -94,37 +113,36 @@ router.post("/edit-project/:id", async (req, res) => {
 })
 
 router.get("/project-detail/:id", async (req, res) => {
-    console.log(req.session.user.id);
-    if (req.session.user) {
-        if (req.session.user.id != req.params) {
-            try {
-                const query = `SELECT * FROM public."Projects" WHERE user_id = ${req.params.id}`;
+    // console.log(req.session.user.id);
+    // if (req.session.user) {
+    // if (req.session.user.id != req.params) {
+    try {
+        const query = `SELECT * FROM public."Projects" WHERE id = ${req.params.id}`;
 
-                const getData = await sequelize.query(query, { type: QueryTypes.SELECT });
+        const getData = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-                const duration = trackDuration(getData);
+        const duration = trackDuration(getData);
 
-                for (const dur of getData) {
-                    dur.duration = duration;
-                }
-
-                res.render("project-detail.hbs", {
-                    user: req.session.user,
-                    data: getData,
-                    style: "/styles/project-detail.css",
-                    jscript: "/js/func-project-detail.js"
-                });
-            } catch (error) {
-                res.redirect("/#project");
-            }
+        for (const dur of getData) {
+            dur.duration = duration;
+            // dur.image = dur.replace("\\", "/");
         }
-        else {
-            res.redirect("/nf")
-        }
+
+        console.log(getData);
+
+        res.render("project-detail.hbs", {
+            user: req.session.user,
+            data: getData,
+            style: "/styles/project-detail.css",
+            jscript: "/js/func-project-detail.js"
+        });
+    } catch (error) {
+        res.redirect("/#project");
     }
-    else {
-        res.redirect("/nf");
-    }
+    // }
+    // else {
+    //     res.redirect("/nf")
+    // }
 })
 
 module.exports = router;

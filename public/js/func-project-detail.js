@@ -152,9 +152,22 @@
 //     window.location.href = "/#project";
 // }
 
-document.querySelector(".btn-edit").addEventListener("click", (event) => {
-    event.preventDefault();
-    document.querySelector(".card-custom-project").classList.toggle("card-none");
-    document.querySelector(".form-none").classList.toggle("form-block");
-});
+// document.querySelector(".btn-edit").addEventListener("click", (event) => {
+//     event.preventDefault();
+//     document.querySelector(".card-custom-project").classList.toggle("card-none");
+//     document.querySelector(".form-none").classList.toggle("form-block");
+// });
 
+document.querySelector(".more-btn").addEventListener("click", () => {
+    document.querySelector(".more-menu-none").classList.toggle("more-menu");
+})
+
+document.querySelector(".l-1").addEventListener("click", function () {
+    document.querySelector(".form-none").classList.toggle("form-block");
+    document.querySelector(".detail-block").classList.toggle("detail-block-none");
+})
+
+document.querySelector(".backBtn").addEventListener("click", function () {
+    document.querySelector(".form-none").classList.toggle("form-block");
+    document.querySelector(".detail-block").classList.toggle("detail-block-none");
+})

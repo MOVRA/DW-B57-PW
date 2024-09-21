@@ -193,3 +193,8 @@ for (let i = 0; i < document.querySelectorAll(".more-btn").length; i++) {
         document.querySelectorAll(".more-menu-na")[i].classList.toggle("more-menu-a");
     })
 }
+
+let time = new Date();
+let now = `${time.getDate()} / ${time.getMonth() + 1} / ${time.getFullYear()}`;
+
+document.querySelector(".date-now").innerHTML = now;

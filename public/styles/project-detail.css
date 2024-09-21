@@ -59,38 +59,101 @@ main {
     margin-bottom: 10vw;
 }
 
+.more-menu-none {
+    display: none;
+}
+
+.more-menu {
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    top: 255px;
+}
+
+.l-1 {
+    width: 100%;
+}
+
+.l-1:hover {
+    background-color: lightblue;
+}
+
+.l-2:hover {
+    background-color: red;
+}
+
+.detail-block {
+    display: block;
+}
+.detail-block-none {
+    display: none;
+}
+
+
+
 @media screen and (min-width: 992px) {
 
     main {
-        padding: 3vw;
+        padding: 0vw 2vw 0vw 2vw;
+        /* border: 1px solid white; */
         display: flex;
         justify-content: center;
-        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2vw;
+        flex-direction: row;
+        margin-bottom: 15vw;
     }
 
     .btn-ed {
-        width: 50%;
+        width: 48%;
         margin-bottom: 2vw;
     }
 
     .custom-container-landing {
         /* height: 50vh; */
+        /* border: 1px solid white; */
         padding-top: 10vw;
     }
 
     .img-custom-project {
-        width: 50%;
+        width: 35%;
         height: 100%;
+        object-fit: cover;
+        border-radius: 2vw;
     }
 
     .card-custom-project {
+        border: 0.1vw solid blue;
+        border-radius: 2vw;
         flex-direction: row;
         display: flex;
-        height: 20rem;
-        width: 90vw;
+        height: 23rem;
+        width: 100%;
+        gap: 2vw;
+        /* margin-bottom: 10vw; */
+        /* margin-top: 5vw; */
+        padding: 2vw;
+    }
+
+    .card-custom-project-info-none {
+        display: none;
+    }
+
+    .card-custom-project-none {
+        display: none;
+    }
+
+    .card-custom-project-info {
+        border: 0.1vw solid blue;
+        border-radius: 2vw;
+        flex-direction: row;
+        display: flex;
+        height: 23rem;
+        width: 100%;
         gap: 2vw;
         margin-bottom: 5vw;
         margin-top: 5vw;
+        padding: 2vw;
     }
 
     .custom-card-cta {
@@ -100,12 +163,46 @@ main {
     .form-none {
         display: none;
     }
-    
+
     .form-block {
         display: block;
     }
-    
+
     .card-none {
         display: none;
+    }
+
+    .menu-project-detail {
+        /* background-color: rgba(53, 60, 255, 0.192); */
+        border: 0.1vw solid blue;
+        border-radius: 2vw;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        padding: 2vw;
+        flex-direction: column;
+        gap: 1vw;
+    }
+
+    .menu-btn {
+        background-color: transparent;
+        border: none;
+        border-radius: 2vw;
+        padding: 1vw;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-btn:hover {
+        background-color: rgba(128, 128, 128, 0.215);
+    }
+
+    .menu-icon {
+        width: 2vw;
+        height: 2vw;
+    }
+
+    .more-menu {
+        top: 177px;
     }
 }

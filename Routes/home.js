@@ -1,14 +1,21 @@
 const express = require("express");
 const config = require("../config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
-const sequelize = new Sequelize(config.development);
+// const sequelize = new Sequelize(config.development);
 const bodyParser = require("body-parser");
 const projectModel = require("../models").Project;
-const router = express.Router();
 const session = require("express-session");
 const env = require("dotenv");
+const multer = require("multer");
+const upload = multer({ dest: 'public/uploads/' })
+
+const router = express.Router();
 
 env.config();
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: { ssl: { require: true } },
+});
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -102,7 +109,8 @@ router.post("/delete/:id", async (req, res) => {
     }
 });
 
-router.post("/add-project", async (req, res) => {
+router.post("/add-project", upload.single('file'), async (req, res) => {
+    console.log(req.body, req.file);
     try {
         const stack = req.body.stack;
 
@@ -112,9 +120,9 @@ router.post("/add-project", async (req, res) => {
             end_date: req.body.eDate,
             description: req.body.desc,
             technologies: stack ? stack.join().replace(/,/g, " ") : "-",
-            image: 'https://preview.redd.it/can-someone-find-me-the-full-picture-of-luffy-v0-h2pzsqum3vwc1.png?width=1400&format=png&auto=webp&s=874056ae179de44d273e13328f104a1eb1f9c50d',
+            image: req.file.path.slice(7, req.file.path.length).replaceAll("\\", "/"),
             user_id: req.session.user.id,
-            username : req.body.username
+            username: req.body.username
         })
 
         console.log("Success inserting data!");
@@ -132,6 +140,8 @@ router.get("/", async (req, res) => {
         const getData = await projectModel.findAll();
 
         const duration = trackDuration(getData);
+
+        console.log(getData);
 
         for (let i = 0; i < getData.length; i++) {
             getData[i].duration = duration[i];
