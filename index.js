@@ -1,5 +1,8 @@
 const express = require("express")
 const hbs = require('hbs');
+const config = require('./config/config.js');
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize(config.production);
 
 const home = require("./Routes/home.js");
 const contact = require("./Routes/contact.js");
