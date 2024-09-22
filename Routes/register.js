@@ -6,13 +6,14 @@ const bodyParser = require("body-parser");
 const userModel = require("../models").User
 const bcrypt = require("bcrypt");
 const env = require("dotenv");
+const neon = require("@neondatabase/serverless");
 
 const router = express.Router();
 
 env.config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialectOptions: { ssl: { require: true } },
+const sequelize = new Sequelize(process.env.DATABASE_URL_UNPOOLED, {
+    dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
 });
 
 router.use(bodyParser.urlencoded({ extended: true }));

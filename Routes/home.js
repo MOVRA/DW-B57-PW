@@ -13,7 +13,7 @@ const router = express.Router();
 
 env.config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(process.env.DATABASE_URL_UNPOOLED, {
     dialectOptions: { ssl: { require: true } },
 });
 
