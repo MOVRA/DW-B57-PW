@@ -1,7 +1,7 @@
 const express = require("express");
 const config = require("../config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config.production);
 const bodyParser = require("body-parser");
 const userModel = require("../models").User
 const bcrypt = require("bcrypt");

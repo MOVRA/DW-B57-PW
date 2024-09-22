@@ -1,7 +1,7 @@
 const express = require("express");
 const config = require("../config/config.js");
 const { Sequelize, QueryTypes } = require("sequelize");
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config.production);
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const fs = require('fs');
