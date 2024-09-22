@@ -7,7 +7,7 @@ const projectModel = require("../models").Project;
 const session = require("express-session");
 const env = require("dotenv");
 const multer = require("multer");
-const upload = multer({ dest: 'public/uploads/' })
+const upload = multer({ dest: 'public/uploads/' });
 
 const router = express.Router();
 
@@ -113,13 +113,21 @@ router.post("/add-project", upload.single('file'), async (req, res) => {
     console.log(req.body, req.file);
     try {
         const stack = req.body.stack;
+        let arr = [];
+
+        if (typeof stack == 'object') {
+            arr = stack;
+        }
+        else {
+            arr.push(stack);
+        }
 
         await projectModel.create({
             name: req.body.pname,
             start_date: req.body.sDate,
             end_date: req.body.eDate,
             description: req.body.desc,
-            technologies: stack ? stack.join().replace(/,/g, " ") : "-",
+            technologies: arr.length > 1 ? stack.join().replaceAll(",", " ") : stack,
             image: req.file.path.slice(7, req.file.path.length).replaceAll("\\", "/"),
             user_id: req.session.user.id,
             username: req.body.username

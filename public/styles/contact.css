@@ -10,6 +10,15 @@ body {
 }
 
 .active {
-    background-color: hsla(230, 39%, 47%, 0.3);
-    border-radius: 1vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.189);
+}
+
+nav li a {
+    border-radius: 10px;
+}
+
+nav li a:hover {
+    /* border-radius: 10px; */
+    background-color: rgba(255, 255, 255, 0.189);
 }

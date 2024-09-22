@@ -95,8 +95,17 @@ router.post("/edit-project/:id", async (req, res) => {
     try {
         let stack = req.body.stack;
 
+        let arr = [];
+
+        if (typeof stack == 'object') {
+            arr = stack;
+        }
+        else {
+            arr.push(stack);
+        }
+
         const query = `UPDATE public."Projects"
-	SET name='${req.body.pname}', start_date='${req.body.sDate}', end_date='${req.body.eDate}', description='${req.body.desc}', technologies='${stack > 1 ? stack.join().replace(/,/g, " ") : "-" || stack <= 1 ? stack : "-"}', "createdAt"=NOW(), "updatedAt"=NOW()
+	SET name='${req.body.pname}', start_date='${req.body.sDate}', end_date='${req.body.eDate}', description='${req.body.desc}', technologies='${arr.length > 1 ? stack.join().replaceAll(",", " ") : stack || stack <= 1 ? stack : "-"}', "createdAt"=NOW(), "updatedAt"=NOW()
 	WHERE id = ${req.params.id};`
 
         await sequelize.query(query, { type: QueryTypes.UPDATE });
@@ -113,9 +122,6 @@ router.post("/edit-project/:id", async (req, res) => {
 })
 
 router.get("/project-detail/:id", async (req, res) => {
-    // console.log(req.session.user.id);
-    // if (req.session.user) {
-    // if (req.session.user.id != req.params) {
     try {
         const query = `SELECT * FROM public."Projects" WHERE id = ${req.params.id}`;
 
@@ -123,9 +129,36 @@ router.get("/project-detail/:id", async (req, res) => {
 
         const duration = trackDuration(getData);
 
+        const ar = ["Node", "Next", "React", "Typescript", "Others"];
+
+        const techData = getData[0].technologies;
+
+        console.log(techData)
+
+        const tech = techData.split(" ");
+
+        const techToRender = [];
+
+        console.log(tech);
+
+        for (let i = 0; i < ar.length; i++) {
+            if (tech[i] == "Typescript" || tech[i] == "Others") {
+                if (ar.includes(tech[i])) {
+                    techToRender.push(`${tech[i]}`);
+                }
+            }
+            else {
+                if (ar.includes(tech[i])) {
+                    techToRender.push(`${tech[i]} JS`);
+                }
+            }
+        }
+
+        // console.log(techToRender);
+
         for (const dur of getData) {
             dur.duration = duration;
-            // dur.image = dur.replace("\\", "/");
+            dur.technologies = techToRender;
         }
 
         console.log(getData);
@@ -139,10 +172,6 @@ router.get("/project-detail/:id", async (req, res) => {
     } catch (error) {
         res.redirect("/#project");
     }
-    // }
-    // else {
-    //     res.redirect("/nf")
-    // }
 })
 
 module.exports = router;

@@ -75,6 +75,20 @@ body {
 
 @media screen and (min-width: 992px) {
 
+    .active {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.189);
+    }
+
+    nav li a {
+        border-radius: 10px;
+    }
+
+    nav li a:hover {
+        /* border-radius: 10px; */
+        background-color: rgba(255, 255, 255, 0.189);
+    }
+
     .custom-container-landing {
         /* border: 1px solid white; */
         /* height: 50vh; */

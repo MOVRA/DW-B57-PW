@@ -85,6 +85,7 @@ main {
 .detail-block {
     display: block;
 }
+
 .detail-block-none {
     display: none;
 }
@@ -102,6 +103,15 @@ main {
         gap: 2vw;
         flex-direction: row;
         margin-bottom: 15vw;
+    }
+
+    nav li a {
+        border-radius: 10px;
+    }
+
+    nav li a:hover {
+        /* border-radius: 10px; */
+        background-color: rgba(255, 255, 255, 0.189);
     }
 
     .btn-ed {

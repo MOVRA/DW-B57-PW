@@ -1,3 +1,16 @@
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll('nav li a');
+
+if (navLinks[0].href.includes(`${activePage}`)) {
+    navLinks[0].classList.add('active');
+}
+else if (navLinks[1].href.includes(`${activePage}`)) {
+    navLinks[1].classList.add('active');
+}
+else if (navLinks[2].href.includes(`${activePage}`)) {
+    navLinks[2].classList.add('active');
+}
+
 if (window.location.pathname != "/") {
     for (let i = 0; i < document.querySelectorAll(".add-project-btn").length; i++) {
         document.querySelectorAll(".add-project-btn")[i].setAttribute("href", "/#project");

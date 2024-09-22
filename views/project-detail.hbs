@@ -4,11 +4,11 @@
     <div class="container mb-5 text-white detail-block">
         <div class="container">
             <div class="d-flex gap-2">
-                {{#if ../user}}
+                {{#if_eq ../user.id user_id}}
                 <button class="nav-link p-0 more-btn"><ion-icon name="ellipsis-vertical-outline" class="text-white"
                         style="width:1.8rem; height: 1.8rem;"></ion-icon></button>
                 {{else}}
-                {{/if}}
+                {{/if_eq}}
                 <h1 class="my-4">{{name}}</h1>
                 <div class="more-menu-none flex-column bg-secondary">
                     <button class="nav-link edit-btn p-3 l-1">Edit</button>
@@ -38,7 +38,8 @@
     </div>
     <form action="/edit-project/{{id}}" method="post" class="form-none my-5">
         <div class="d-flex gap-3 align-items-center">
-            <button type="button" class="btn backBtn"><ion-icon name="close-outline" class="text-white" style="width: 2rem; height: 2rem"></ion-icon></button>
+            <button type="button" class="btn backBtn"><ion-icon name="close-outline" class="text-white"
+                    style="width: 2rem; height: 2rem"></ion-icon></button>
             <h3 class="fs-3 text-white ">Edit project</h3>
         </div>
         <label for="pname" class="fs-5 text-white my-4">Project name</label>
@@ -49,16 +50,24 @@
         <input type="date" class="form-control" name="eDate" id="eDate" value="{{end_date}}">
         <label for="" class="fs-5 text-white my-4">Technologies</label>
         <div class="checkBox">
-            <input type="checkbox" name="stack" id="tech" value="Node JS">
-            <label for="tech" class="text-white mx-3">Node JS</label>
-            <input type="checkbox" name="stack" id="tech" value="Next JS">
+            {{!-- {{#each technologies}} --}}
+            <input type="checkbox" name="stack" id="tech" value="Node JS" {{#if_arr technologies "Node JS"
+                }}checked{{/if_arr}}>
+            <label for="tech" class="text-white mx-3" {{#if_arr technologies "Node JS" }}checked{{/if_arr}}>Node
+                JS</label>
+            <input type="checkbox" name="stack" id="tech" value="Next JS" {{#if_arr technologies "Next JS"
+                }}checked{{/if_arr}}>
             <label for="tech" class="text-white mx-3">Next JS</label>
-            <input type="checkbox" name="stack" id="tech" value="React JS">
+            <input type="checkbox" name="stack" id="tech" value="React JS" {{#if_arr technologies "React JS"
+                }}checked{{/if_arr}}>
             <label for="tech" class="text-white mx-4">React JS</label>
-            <input type="checkbox" name="stack" id="tech" value="Typescript">
+            <input type="checkbox" name="stack" id="tech" value="Typescript" {{#if_arr technologies "Typescript"
+                }}checked{{/if_arr}}>
             <label for="tech" class="text-white mx-3">Typescript</label>
-            <input type="checkbox" name="stack" id="tech" value="others">
+            <input type="checkbox" name="stack" id="tech" value="others" {{#if_arr technologies "Others"
+                }}checked{{/if_arr}}>
             <label for="tech" class="text-white mx-3">Others</label>
+            {{!-- {{/else}} --}}
         </div>
         <label for="desc" class="fs-5 text-white my-4">Description</label>
         <textarea id="message" class="form-control" name="desc" cols="48" rows="10"

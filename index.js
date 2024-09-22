@@ -32,6 +32,14 @@ hbs.registerHelper('if_eq', function (a, b, opts) {
     }
 });
 
+hbs.registerHelper('if_arr', function (a, b, opts) {
+    if (a.includes(b)) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
+
 app.use(register);
 
 app.use(login);
