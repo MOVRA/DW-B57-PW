@@ -1,7 +1,7 @@
 const express = require("express");
 const config = require("../config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
-// const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config.development);
 const bodyParser = require("body-parser");
 const projectModel = require("../models").Project;
 const session = require("express-session");
@@ -13,9 +13,9 @@ const router = express.Router();
 
 env.config();
 
-const sequelize = new Sequelize(process.env.DATABASE_URL_UNPOOLED, {
-    dialectOptions: { ssl: { require: true } },
-});
+// const sequelize = new Sequelize(process.env.DATABASE_URL_UNPOOLED, {
+//     dialectOptions: { ssl: { require: true } },
+// });
 
 router.use(bodyParser.urlencoded({ extended: true }));
 

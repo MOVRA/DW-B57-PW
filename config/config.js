@@ -1,18 +1,43 @@
+// require("dotenv").config();
+// module.exports = {
+//   development: {
+//     url: process.env.DATABASE_URL,
+//     dialect: 'postgres',
+//     dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+//   },
+//   test: {
+//     url: process.env.DATABASE_URL,
+//     dialect: 'postgres',
+//     dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+//   },
+//   production: {
+//     url: process.env.DATABASE_URL,
+//     dialect: 'postgres',
+//     dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+//   }
+// }
+
 require("dotenv").config();
 module.exports = {
-  development: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-    dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+  "development": {
+    "username": process.env.APP_DB,
+    "password": process.env.PASS_DB,
+    "database": process.env.NAME_DB,
+    "host": "127.0.0.1",
+    "dialect": process.env.DIALECT_DB
   },
-  test: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-    dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
-  production: {
-    url: process.env.DATABASE_URL,
-    dialect: 'postgres',
-    dialectOptions: { ssl: { require: true }, rejectUnauthorized: false },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
